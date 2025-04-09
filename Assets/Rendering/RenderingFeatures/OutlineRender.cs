@@ -4,8 +4,14 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
+
 public class OutlineRender : ScriptableRendererFeature
 {
+
+    private class ViewSpaceNormalsTexturePass : ScriptableRenderPass
+    {  }
+
+
     public override void Create()
     {
 
