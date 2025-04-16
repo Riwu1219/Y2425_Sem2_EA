@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bubbleMoveController : MonoBehaviour
+public class bubblePhysics : MonoBehaviour
 {
+    public float Gravity = -9.81f;
     public float Intensity = 1f;
     public float Mass = 1f;
     public float stiffness = 1f;
     public float damping = 0.75f;
+
     private Mesh OriginalMesh, MeshClone;
     private MeshRenderer renderer;
     private JellyVertex[] jv;
@@ -16,6 +18,7 @@ public class bubbleMoveController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Physics.gravity = new Vector3(0f, Gravity, 0f);
         OriginalMesh = GetComponent<MeshFilter>().sharedMesh;
         MeshClone = Instantiate(OriginalMesh);
         GetComponent<MeshFilter>().sharedMesh = MeshClone;
