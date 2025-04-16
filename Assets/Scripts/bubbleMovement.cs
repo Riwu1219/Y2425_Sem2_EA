@@ -8,9 +8,9 @@ public class bubbleMovement : MonoBehaviour
     private float x = 0, y = 0;
     private Rigidbody rb;
     private float magnitude;
+    private Transform bubbleTrans;
 
     public float minMagnitude = 0.5f;
-    public Transform bubbleTrans;
     protected Transform mouseTrans;
 
 
@@ -22,7 +22,7 @@ public class bubbleMovement : MonoBehaviour
 
     void Update()
     {
-        
+        ForceCaculation();
     }
 
     //Used to calculate force and add force on bubble movement
@@ -41,7 +41,8 @@ public class bubbleMovement : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0) && !Canceled)
         {
-            rb.AddForce(x, y, 0);
+            Debug.Log("Moved");
+            rb.AddForce(10, 100, 0);
         }
         
     }
