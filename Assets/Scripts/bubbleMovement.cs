@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class bubbleMovement : MonoBehaviour
 {
+    public ObjectLocator objLocator;
+
     private float x = 0, y = 0;
     private Rigidbody rb;
-    private float magnitude;
+    private float curMagnitude;
     private Transform bubbleTrans;
 
     public float moveForce = 1f;
+    public float moveHeightOffset = 1f;
     public float minMagnitude = 0.5f;
-    protected Transform mouseTrans;
+    public bool Canceled = false;
+
+    private Vector3 mousePosition;
+    private Vector3 bubbleLocationOnScreen;
 
 
     void Start()
@@ -23,35 +28,50 @@ public class bubbleMovement : MonoBehaviour
 
     void Update()
     {
-        ForceCaculation();
+        ApplyForce();
     }
 
     //Used to calculate force and add force on bubble movement
-    void ForceCaculation()
+    void ApplyForce()
     {
-        bool Canceled = false;
         if (Input.GetMouseButtonDown(0))
         {
-            //Calculate 
 
-            //Magnitude * Adjustment Force
-            x = x * moveForce;
-            y = y * moveForce;
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            mousePosition = Input.mousePosition; //Get mouse onScreenPosition
+            bubbleLocationOnScreen = objLocator.GetTargetLocationOnScreen(bubbleTrans); //Get bubble transform on screen
+
+            //Calculate
+            curMagnitude = Mathf.Sqrt(Mathf.Pow(mousePosition.x - bubbleLocationOnScreen.x, 2) + Mathf.Pow(mousePosition.y - bubbleLocationOnScreen.y, 2));
+            Debug.Log(curMagnitude);
+            x = mousePosition.x - bubbleLocationOnScreen.x;
+            y = mousePosition.y - bubbleLocationOnScreen.y;
 
             //Allow user to cancel movement if the magnitude < than configurated value
-            if (magnitude < minMagnitude)
+            if (curMagnitude < minMagnitude)
             {
                 Canceled = true;
             }
+            else
+            {
+                Canceled = false;
+            }
+
         }
 
-        
+
 
         if (Input.GetMouseButtonUp(0) && !Canceled)
         {
+            //Magnitude * Adjustment Force
+            x = x * moveForce;
+            y = y * moveForce * moveHeightOffset;
+
             Debug.Log("Moved");
-            rb.AddForce(10, 100, 0);
+            rb.AddForce(x, y, 0);
         }
-        
     }
 }
