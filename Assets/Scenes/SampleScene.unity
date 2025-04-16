@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 570277221}
   m_Layer: 0
   m_Name: RealFloor
-  m_TagString: Untagged
+  m_TagString: Moveable_Surface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -657,7 +657,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867335218}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 952b2f86189086741adc1849c5a62f59, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -773,8 +773,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ff357cb21fa9e4eb7ff6f03d95519b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objLocator: {fileID: 963194231}
   moveForce: 0.28
   moveHeightOffset: 2
   minMagnitude: 150
+  maxMagnitude: 300
   Canceled: 0
+  canMove: 1
+  objLocator: {fileID: 963194231}

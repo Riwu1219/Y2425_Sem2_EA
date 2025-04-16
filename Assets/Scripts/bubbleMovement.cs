@@ -4,21 +4,42 @@ using UnityEngine;
 
 public class bubbleMovement : MonoBehaviour
 {
+    [Header("|| <CONFIG> ||")]
+    public float moveForce = 1f;
+    public float moveHeightOffset = 1f;
+    public float minMagnitude = 0.5f;
+    public float maxMagnitude = 700;
+
+    [Header("|| <STATUS> ||")]
+    public bool Canceled = false;
+    public bool canMove = true;
+
+    [Header("|| <SCRIPT> ||")]
     public ObjectLocator objLocator;
+
+    private Vector3 mousePosition;
+    private Vector3 bubbleLocationOnScreen;
 
     private float x = 0, y = 0;
     private Rigidbody rb;
     private float curMagnitude;
     private Transform bubbleTrans;
 
-    public float moveForce = 1f;
-    public float moveHeightOffset = 1f;
-    public float minMagnitude = 0.5f;
-    public bool Canceled = false;
 
-    private Vector3 mousePosition;
-    private Vector3 bubbleLocationOnScreen;
-
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Moveable_Surface"))
+        {
+            canMove = true;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Moveable_Surface"))
+        {
+            canMove = false;
+        }
+    }
 
     void Start()
     {
@@ -64,14 +85,23 @@ public class bubbleMovement : MonoBehaviour
 
 
 
-        if (Input.GetMouseButtonUp(0) && !Canceled)
+        if (Input.GetMouseButtonUp(0) && canMove && !Canceled)
         {
             //Magnitude * Adjustment Force
             x = x * moveForce;
             y = y * moveForce * moveHeightOffset;
 
+            Vector3 force = new Vector3(x, y, 0);
+
+            if (curMagnitude > maxMagnitude)
+            {
+                force = force.normalized * maxMagnitude;
+            }
+
+            // Apply the force to the Rigidbody
+            rb.AddForce(force);
+            canMove = false;
             Debug.Log("Moved");
-            rb.AddForce(x, y, 0);
         }
     }
 }

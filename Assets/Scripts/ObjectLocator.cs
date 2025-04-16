@@ -31,7 +31,7 @@ public class ObjectLocator : MonoBehaviour
             //Debug.Log("Viewport Position: " + viewportPosition);
 
             Vector3 screenPosition = currentCamera.WorldToScreenPoint(targetPosition); //choosed cause float easiler to calculate
-            Debug.Log("Screen Position: " + screenPosition);
+            //Debug.Log("Screen Position: " + screenPosition);
 
             return (screenPosition);
         } 
