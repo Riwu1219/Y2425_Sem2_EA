@@ -10,6 +10,7 @@ public class bubbleMovement : MonoBehaviour
     private float magnitude;
     private Transform bubbleTrans;
 
+    public float moveForce = 1f;
     public float minMagnitude = 0.5f;
     protected Transform mouseTrans;
 
@@ -33,12 +34,19 @@ public class bubbleMovement : MonoBehaviour
         {
             //Calculate 
 
+            //Magnitude * Adjustment Force
+            x = x * moveForce;
+            y = y * moveForce;
+
             //Allow user to cancel movement if the magnitude < than configurated value
             if (magnitude < minMagnitude)
             {
                 Canceled = true;
             }
         }
+
+        
+
         if (Input.GetMouseButtonUp(0) && !Canceled)
         {
             Debug.Log("Moved");
