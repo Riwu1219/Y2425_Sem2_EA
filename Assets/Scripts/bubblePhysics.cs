@@ -11,7 +11,7 @@ public class bubblePhysics : MonoBehaviour
     public float damping = 0.75f;
 
     private Mesh OriginalMesh, MeshClone;
-    private MeshRenderer renderer;
+    new private MeshRenderer renderer;
     private JellyVertex[] jv;
     private Vector3[] vertexArray;
 
