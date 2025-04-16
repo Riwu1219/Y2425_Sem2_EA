@@ -1,18 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class CameraFollowing : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public bool isFollowing = true;
+
+    public GameObject target;
+    public float cameraOffsetY;
+    public float cameraSpeed;
+
+    
     void Start()
     {
-        
+        target = GameObject.FindGameObjectWithTag("Bubble");
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if (target != null)
+        {
+            Vector3 targetPosition = new Vector3(target.transform.position.x, target.transform.position.y + cameraOffsetY, transform.position.z);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, cameraSpeed);
+        } 
+        else
+        {
+            target = GameObject.FindGameObjectWithTag("Bubble");
+        }
+            
     }
 }
