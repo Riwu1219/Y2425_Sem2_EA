@@ -79,7 +79,7 @@ public class bubbleMovement : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             bubbleTrans = GetComponent<Transform>();
-            mousePosition = Input.mousePosition; //Get mouse onScreenPosition
+            mousePosition = Camera.main.ScreenToViewportPoint(Input.mousePosition); //Get mouse onScreenPosition
             bubbleLocationOnScreen = objLocator.GetTargetLocationOnScreen(bubbleTrans); //Get bubble transform on screen
 
             //Calculate
