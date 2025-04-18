@@ -16,11 +16,14 @@ public class ObjectLocator : MonoBehaviour
 
     void Update()
     {
+        targetObj = GameObject.FindGameObjectWithTag("Bubble");
+        target = GameObject.FindGameObjectWithTag("Bubble").transform;
         GetTargetLocationOnScreen(target);
     }
 
     public Vector3 GetTargetLocationOnScreen(Transform target)
     {
+        
         target = targetObj.transform;
 
         if (currentCamera != null)

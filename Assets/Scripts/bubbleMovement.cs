@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class bubbleMovement : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class bubbleMovement : MonoBehaviour
     [Header("|| <STATUS> ||")]
     public bool Canceled = false;
     public bool canMove = true;
+    public bool isDead = false;
 
     [Header("|| <SCRIPT> ||")]
     public ObjectLocator objLocator;
@@ -31,7 +33,8 @@ public class bubbleMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         bubbleTrans = GetComponent<Transform>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
+        objLocator = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ObjectLocator>();
     }
 
     private void OnCollisionStay(Collision collision)
@@ -42,7 +45,9 @@ public class bubbleMovement : MonoBehaviour
         }
         else
         {
-            //animator.Play("Dead");
+            isDead = true;
+            rb.isKinematic = true;
+            animator.Play("Dead");
         }
     }
 
@@ -56,7 +61,11 @@ public class bubbleMovement : MonoBehaviour
 
     void Update()
     {
-        ApplyForce();
+        if (!isDead)
+        {
+            ApplyForce();
+        }
+
     }
 
     //Used to calculate force and add force on bubble movement
@@ -69,6 +78,7 @@ public class bubbleMovement : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
+            bubbleTrans = GetComponent<Transform>();
             mousePosition = Input.mousePosition; //Get mouse onScreenPosition
             bubbleLocationOnScreen = objLocator.GetTargetLocationOnScreen(bubbleTrans); //Get bubble transform on screen
 
@@ -124,4 +134,5 @@ public class bubbleMovement : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 }
