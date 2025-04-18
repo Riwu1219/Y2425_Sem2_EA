@@ -854,7 +854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8048211597377291112, guid: bc8c60de6d786d947b9e0cc212e92838, type: 3}
       propertyPath: moveHeightOffset
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc8c60de6d786d947b9e0cc212e92838, type: 3}

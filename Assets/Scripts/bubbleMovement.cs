@@ -108,16 +108,21 @@ public class bubbleMovement : MonoBehaviour
         {
             if (curMagnitude > maxMagnitude)
             {
-                force = force.normalized * maxMagnitude;
+                Debug.Log(force);
+                force = force.normalized * (maxMagnitude * 2);
+                Debug.Log(force + " normalized");
+                force = new Vector3(force.x * moveForce/2, force.y * moveForce/2, 0);
+                Debug.Log(force + " final");
             }
             else
             {
                 //Magnitude * Adjustment Force
                 x = x * moveForce;
                 y = y * moveForce + moveHeightOffset;
+                force = new Vector3(x, y, 0);
+                Debug.Log(force + " final < max");
             }
 
-            force = new Vector3(x, y, 0);
             rb.AddForce(force);
             canMove = false;
             Debug.Log("Moved");
