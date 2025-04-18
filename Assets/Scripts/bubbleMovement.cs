@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class bubbleMovement : MonoBehaviour
@@ -24,7 +25,14 @@ public class bubbleMovement : MonoBehaviour
     private Rigidbody rb;
     private float curMagnitude;
     private Transform bubbleTrans;
+    private Animator animator;
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        bubbleTrans = GetComponent<Transform>();
+        //animator = GetComponent<Animator>();
+    }
 
     private void OnCollisionStay(Collision collision)
     {
@@ -32,19 +40,18 @@ public class bubbleMovement : MonoBehaviour
         {
             canMove = true;
         }
+        else
+        {
+            //animator.Play("Dead");
+        }
     }
+
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Moveable_Surface"))
         {
             canMove = false;
         }
-    }
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        bubbleTrans = GetComponent<Transform>();
     }
 
     void Update()
@@ -87,21 +94,34 @@ public class bubbleMovement : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0) && canMove && !Canceled)
         {
-            //Magnitude * Adjustment Force
-            x = x * moveForce;
-            y = y * moveForce * moveHeightOffset;
-
             Vector3 force = new Vector3(x, y, 0);
 
             if (curMagnitude > maxMagnitude)
             {
                 force = force.normalized * maxMagnitude;
             }
+            else
+            {
+                //Magnitude * Adjustment Force
+                x = x * moveForce;
+                y = y * moveForce + moveHeightOffset;
 
-            // Apply the force to the Rigidbody
+                force = new Vector3(x, y, 0);
+            }
+
             rb.AddForce(force);
             canMove = false;
             Debug.Log("Moved");
         }
+    }
+
+    //Used by Animation
+    public void DeadVFX()
+    {
+
+    }
+    public void SelfDestroy()
+    {
+        Destroy(gameObject);
     }
 }
