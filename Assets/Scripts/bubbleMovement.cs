@@ -71,6 +71,8 @@ public class bubbleMovement : MonoBehaviour
     //Used to calculate force and add force on bubble movement
     void ApplyForce()
     {
+        Vector3 force = new Vector3(x, y, 0);
+
         if (Input.GetMouseButtonDown(0))
         {
 
@@ -104,8 +106,6 @@ public class bubbleMovement : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0) && canMove && !Canceled)
         {
-            Vector3 force = new Vector3(x, y, 0);
-
             if (curMagnitude > maxMagnitude)
             {
                 force = force.normalized * maxMagnitude;
@@ -115,10 +115,9 @@ public class bubbleMovement : MonoBehaviour
                 //Magnitude * Adjustment Force
                 x = x * moveForce;
                 y = y * moveForce + moveHeightOffset;
-
-                force = new Vector3(x, y, 0);
             }
 
+            force = new Vector3(x, y, 0);
             rb.AddForce(force);
             canMove = false;
             Debug.Log("Moved");
