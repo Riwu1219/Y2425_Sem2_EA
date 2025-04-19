@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -15,8 +15,11 @@ public class Dialogue : MonoBehaviour
     [Header("|| <CONFIG> ||")]
     public float textSpeed;
     public float spaceSpeed;
+    public float lineDelay;
+    public bool isDelay;
 
     private int index;
+
 
     void Start()
     {
@@ -41,11 +44,25 @@ public class Dialogue : MonoBehaviour
     {
         foreach (char c in lines[index].ToCharArray())
         {
-            dialog.text += c;
-            yield return new WaitForSeconds(textSpeed);
+            if (c == ' ')
+            {
+                yield return new WaitForSeconds(spaceSpeed);
+
+            }
+                dialog.text += c;
+                yield return new WaitForSeconds(textSpeed);
+                
         }
 
-        Nextline(); // go to the next line after typing the current one
+        StartCoroutine(LineDelay());
+        
+
+    }
+
+    IEnumerator LineDelay()
+    {
+        yield return new WaitForSeconds(lineDelay);
+        Nextline();
     }
 
     void Nextline()
