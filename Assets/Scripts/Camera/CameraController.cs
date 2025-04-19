@@ -1,15 +1,16 @@
 using UnityEngine;
 
-
-//THIS SCRIPT IS SUCKS, HELP REWRITE OR REPLACE OTHER SCRIPT
 public class CameraController : MonoBehaviour
 {
-    public float mouseSensitivity = 500f; // Mouse's DPI
-
+    public float mouseSensitivity = 500f; // mouse dpi
     public Transform orientation;
 
-    float xRotation;
-    float yRotation;
+    public float maxXRotation = 90f; 
+    public float maxYRotation = 90f;
+    public float maxZRotation = 90f; 
+
+    private float xRotation;
+    private float yRotation;
 
     void Start()
     {
@@ -18,14 +19,20 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        // 
+        HandleMouseLook();
+    }
+
+    private void HandleMouseLook()
+    {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        // 
         yRotation += mouseX;
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        // lock the camera rotation
+        xRotation = Mathf.Clamp(xRotation, -maxXRotation, maxXRotation);
+        yRotation = Mathf.Clamp(yRotation, -maxYRotation, maxYRotation);
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);

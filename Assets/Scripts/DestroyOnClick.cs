@@ -11,6 +11,7 @@ public class DestroyOnClick : MonoBehaviour
     public Text killCountText;
 
     private int killCount = 0;
+    private bool canRespawn = true;
 
     void Start()
     {
@@ -32,7 +33,15 @@ public class DestroyOnClick : MonoBehaviour
                     Destroy(hit.collider.gameObject);
                     killCount++;
                     UpdateKillCountUI();
-                    StartCoroutine(RespawnBubble());
+
+                    if (killCount < 20 && canRespawn) // <<<<<<<<<<< (Win condititon >=10)
+                    {
+                        StartCoroutine(RespawnBubble());
+                    }
+                    else
+                    {
+                        canRespawn = false; // STOP RESPAWNING
+                    }
                 }
             }
         }
@@ -51,7 +60,7 @@ public class DestroyOnClick : MonoBehaviour
         Instantiate(bubblePrefab, randomPosition, Quaternion.identity);
     }
 
-    void UpdateKillCountUI()
+    void UpdateKillCountUI()    
     {
         killCountText.text = "x" + killCount; // Update the UI text
     }
