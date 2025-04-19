@@ -247,7 +247,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30164
+  m_Name: pb_Mesh27898
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1541,14 +1541,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0eead40891ac242a729916b0e4da1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textComponent: {fileID: 1766760412}
+  dialog: {fileID: 1766760412}
   lines:
   - Hello World
   - If you reading this line you are GAY
   - os.remove("C:\Windows\System32")
   - :D
-  textSpeed: 0.1
+  textSpeed: 0.06
   spaceSpeed: 0
+  lineDelay: 2
+  isDelay: 0
 --- !u!114 &2055324121
 MonoBehaviour:
   m_ObjectHideFlags: 0
