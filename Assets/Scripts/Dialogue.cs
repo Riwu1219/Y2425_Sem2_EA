@@ -5,15 +5,22 @@ using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
-    public TextMeshProUGUI textComponent;
+    [SerializeField]
+    [Header("|| <TextArea> ||")]
+    public TextMeshProUGUI dialog;
+
+    [Header("|| <TextLines> ||")]
     public string[] lines;
+
+    [Header("|| <CONFIG> ||")]
     public float textSpeed;
+    public float spaceSpeed;
 
     private int index;
 
     void Start()
     {
-        textComponent.text = string.Empty; // Clear the text at the start
+        dialog.text = string.Empty; // Clear the text at the start
         StartDialogue();
     }
 
@@ -25,6 +32,7 @@ public class Dialogue : MonoBehaviour
 
     void StartDialogue()
     {
+        //Set start text line to first line(0) in list
         index = 0;
         StartCoroutine(TypeLine());
     }
@@ -33,7 +41,7 @@ public class Dialogue : MonoBehaviour
     {
         foreach (char c in lines[index].ToCharArray())
         {
-            textComponent.text += c;
+            dialog.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
 
@@ -45,7 +53,7 @@ public class Dialogue : MonoBehaviour
         if (index < lines.Length - 1)
         {
             index++;
-            textComponent.text = string.Empty; // Clear the text for the next line
+            dialog.text = string.Empty; // Clear the text for the next line
             StartCoroutine(TypeLine());
         }
         else
