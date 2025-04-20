@@ -17,6 +17,7 @@ public class ObjInArea : MonoBehaviour
         if (other.gameObject.name == "Key")
         {
            Destroy(this.gameObject);
+
         }
     }
 }
