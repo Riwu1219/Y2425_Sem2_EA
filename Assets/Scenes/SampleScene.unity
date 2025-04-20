@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17511535, g: 0.21907772, b: 0.30137855, a: 1}
+  m_IndirectSpecularColor: {r: 0.17511046, g: 0.21907173, b: 0.30137092, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -837,6 +837,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8048211597377291112, guid: bc8c60de6d786d947b9e0cc212e92838, type: 3}
+      propertyPath: Canceled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048211597377291112, guid: bc8c60de6d786d947b9e0cc212e92838, type: 3}
       propertyPath: moveForce
       value: 500
       objectReference: {fileID: 0}
@@ -846,11 +850,11 @@ PrefabInstance:
       objectReference: {fileID: 963194231}
     - target: {fileID: 8048211597377291112, guid: bc8c60de6d786d947b9e0cc212e92838, type: 3}
       propertyPath: maxMagnitude
-      value: 0.5
+      value: 10.53
       objectReference: {fileID: 0}
     - target: {fileID: 8048211597377291112, guid: bc8c60de6d786d947b9e0cc212e92838, type: 3}
       propertyPath: minMagnitude
-      value: 0.06
+      value: 4.27
       objectReference: {fileID: 0}
     - target: {fileID: 8048211597377291112, guid: bc8c60de6d786d947b9e0cc212e92838, type: 3}
       propertyPath: moveHeightOffset
