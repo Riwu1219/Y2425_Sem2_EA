@@ -19,7 +19,7 @@ public class bubbleMovement : MonoBehaviour
 
     [Header("|| <Component> ||")]
     public ObjectLocator objLocator;
-    public AudioSource audioSource;
+    public AudioSource collisionSound;
 
     private Vector3 mousePosition;
     private Vector3 bubbleLocationOnScreen;
@@ -36,6 +36,14 @@ public class bubbleMovement : MonoBehaviour
         bubbleTrans = GetComponent<Transform>();
         animator = GetComponent<Animator>();
         objLocator = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ObjectLocator>();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Moveable_Surface"))
+        {
+            collisionSound.Play();
+        }
     }
 
     private void OnCollisionStay(Collision collision)
