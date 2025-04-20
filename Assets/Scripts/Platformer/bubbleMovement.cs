@@ -17,8 +17,9 @@ public class bubbleMovement : MonoBehaviour
     public bool canMove = true;
     public bool isDead = false;
 
-    [Header("|| <SCRIPT> ||")]
+    [Header("|| <Component> ||")]
     public ObjectLocator objLocator;
+    public AudioSource audioSource;
 
     private Vector3 mousePosition;
     private Vector3 bubbleLocationOnScreen;
