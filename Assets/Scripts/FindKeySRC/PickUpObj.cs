@@ -56,16 +56,6 @@ public class PickUpObj : MonoBehaviour
                 objRigidbody.useGravity = true;
                 pickedup = false;
             }
-            if (pickedup == true)
-            {
-                if (Input.GetMouseButtonDown(1))
-                {
-                    objTransform.parent = null;
-                    objRigidbody.useGravity = true;
-                    objRigidbody.velocity = cameraTrans.forward * throwAmount * Time.deltaTime;
-                    pickedup = false;
-                }
-            }
         }
     }
 }
