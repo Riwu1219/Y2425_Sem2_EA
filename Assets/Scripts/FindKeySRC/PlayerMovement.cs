@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
         {
-            moveDirection.y = jumpPower;
+            moveDirection.y = movementDirectionY;
         }
         else
         {
@@ -92,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             }
+
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
     }
