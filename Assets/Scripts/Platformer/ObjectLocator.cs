@@ -5,8 +5,10 @@ using static UnityEngine.GraphicsBuffer;
 
 public class ObjectLocator : MonoBehaviour
 {
-    public GameObject targetObj; // The game object to track on Screen
+    private GameObject targetObj; // The game object to track on Screen
     private Transform target;
+
+    public string objectTag;
     public Camera currentCamera;
 
     void Start()
@@ -16,9 +18,13 @@ public class ObjectLocator : MonoBehaviour
 
     void Update()
     {
-        targetObj = GameObject.FindGameObjectWithTag("Bubble");
-        target = GameObject.FindGameObjectWithTag("Bubble").transform;
-        GetTargetLocationOnScreen(target);
+        if (GameObject.FindGameObjectWithTag(objectTag) != null)
+        {
+            targetObj = GameObject.FindGameObjectWithTag(objectTag);
+            target = GameObject.FindGameObjectWithTag(objectTag).transform;
+            GetTargetLocationOnScreen(target);
+        }
+        
     }
 
     public Vector3 GetTargetLocationOnScreen(Transform target)
