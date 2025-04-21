@@ -9,6 +9,7 @@ TagManager:
   - canPickUp
   - Goal
   - LevelObject
+  - Garbage
   layers:
   - Default
   - TransparentFX
