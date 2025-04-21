@@ -31,6 +31,8 @@ public class bubbleMovement : MonoBehaviour
     private Transform bubbleTrans;
     private Animator animator;
 
+    private GameObject DeadVFX;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -160,7 +162,7 @@ public class bubbleMovement : MonoBehaviour
 
 
     //Used by Animation
-    public void DeadVFX()
+    public void PlayDeadVFX()
     {
 
     }
