@@ -74,6 +74,7 @@ public class bubbleMovement : MonoBehaviour
     {
         if (!isDead)
         {
+            checkLocation();
             ApplyForce();
         }
 
@@ -139,6 +140,24 @@ public class bubbleMovement : MonoBehaviour
             Debug.Log("Moved");
         }
     }
+
+    private void checkLocation()
+    {
+        if (gameObject.transform.position.y <= -2)
+        {
+            //Dead();
+            Destroy(gameObject);
+        }
+    }
+
+    private void Dead()
+    {
+        isDead = true;
+        rb.isKinematic = true;
+        animator.Play("Dead");
+    }
+
+
 
     //Used by Animation
     public void DeadVFX()

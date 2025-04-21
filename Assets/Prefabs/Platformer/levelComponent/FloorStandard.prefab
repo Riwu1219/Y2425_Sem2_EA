@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8820817549327733489}
   - component: {fileID: 8820817549327733488}
   - component: {fileID: 8820817549327733491}
-  - component: {fileID: 8820817549327733495}
   m_Layer: 0
   m_Name: collider
   m_TagString: Moveable_Surface
@@ -99,19 +98,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &8820817549327733495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8820817549327733490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ba1c88d3e568bb429bbd62fdf1ed781, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Bubble: {fileID: 0}
 --- !u!1 &8820817549930999591
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6088266329822406909}
   m_Layer: 0
-  m_Name: Floor_01
+  m_Name: FloorStandard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

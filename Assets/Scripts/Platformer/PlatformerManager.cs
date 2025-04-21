@@ -9,11 +9,12 @@ public class PlatformerManager : MonoBehaviour
     [SerializeField]
     [Header("-GetObject-")]
     private GameObject bubble;
-    private GameObject goal;
+    public GameObject goal;
 
     [Header("|| <STATUS> ||")]
-    public int levelCount = 0;
+    private int Count = 0;
     public List<GameObject> level = new List<GameObject>();
+    public bool isPlatformerEnd;
 
     [Header("|| <CONFIG> ||")]
     public GameObject bubblePrefab;
@@ -22,6 +23,12 @@ public class PlatformerManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        Instantiate(level[Count]);
+        LevelRestart(); 
     }
 
     private void FixedUpdate()
@@ -41,13 +48,33 @@ public class PlatformerManager : MonoBehaviour
     //Call by GoalScript
     public void LevelManager()
     {
-        if (levelCount < level.Count)
+        if (Count < level.Count)
         {
-            Destroy(level[levelCount]);
-            levelCount++;
-            Instantiate(level[levelCount]);
+            Count++;
+            Destroy(level[Count-1]);
+            
+            Instantiate(level[Count]);
+
+            LevelRestart();
         }
-        
+        else
+        {
+            isPlatformerEnd = true;
+        }
+
     }
 
+    //Reset level included(bubble location, spawn goal)
+    public void LevelRestart()
+    {
+        spawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
+
+        if (GameObject.FindGameObjectWithTag("Bubble") == null)
+        {
+            Instantiate(bubblePrefab, spawnPoint);
+        }
+
+        Instantiate(goal, GameObject.FindGameObjectWithTag("Goal").transform.position, Quaternion.identity);
+        Destroy(GameObject.FindGameObjectWithTag("Bubble"));
+    }
 }

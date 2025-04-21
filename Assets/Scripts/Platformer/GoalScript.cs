@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class GoalScript : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider other)
     {
         PlatformerManager.instance.LevelManager();
         Destroy(gameObject);
     }
+
 }
