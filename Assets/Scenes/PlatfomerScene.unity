@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubble: {fileID: 0}
-  goal: {fileID: 3148979774556482583, guid: 69b99736b70b3ef4683d77184c65deff, type: 3}
+  goalPrefab: {fileID: 3148979774556482583, guid: 69b99736b70b3ef4683d77184c65deff, type: 3}
   level:
   - {fileID: 8520372164738477927, guid: 621da665dce55ee43b363478cbe47153, type: 3}
   - {fileID: 8140656023070072614, guid: 54f2c60d3daca3a469230cd14cfa375f, type: 3}
