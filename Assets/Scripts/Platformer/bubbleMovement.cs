@@ -31,7 +31,7 @@ public class bubbleMovement : MonoBehaviour
     private Transform bubbleTrans;
     private Animator animator;
 
-    private GameObject DeadVFX;
+    private ParticleSystem DeadVFX;
 
     void Start()
     {
@@ -39,6 +39,7 @@ public class bubbleMovement : MonoBehaviour
         bubbleTrans = GetComponent<Transform>();
         animator = GetComponent<Animator>();
         objLocator = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ObjectLocator>();
+        DeadVFX = GetComponentInChildren<ParticleSystem>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -57,9 +58,7 @@ public class bubbleMovement : MonoBehaviour
         }
         else
         {
-            isDead = true;
-            rb.isKinematic = true;
-            animator.Play("Dead");
+            Dead();
         }
     }
 
@@ -147,8 +146,7 @@ public class bubbleMovement : MonoBehaviour
     {
         if (gameObject.transform.position.y <= -2)
         {
-            //Dead();
-            Destroy(gameObject);
+            SelfDestroy();
         }
     }
 
@@ -156,6 +154,8 @@ public class bubbleMovement : MonoBehaviour
     {
         isDead = true;
         rb.isKinematic = true;
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        gameObject.GetComponent<SphereCollider>().enabled = false;
         animator.Play("Dead");
     }
 
@@ -164,8 +164,9 @@ public class bubbleMovement : MonoBehaviour
     //Used by Animation
     public void PlayDeadVFX()
     {
-
+        DeadVFX.Play();
     }
+        
     public void SelfDestroy()
     {
         Destroy(gameObject);
