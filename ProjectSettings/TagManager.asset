@@ -8,6 +8,7 @@ TagManager:
   - Moveable_Surface
   - canPickUp
   - Goal
+  - LevelObject
   layers:
   - Default
   - TransparentFX

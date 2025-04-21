@@ -969,7 +969,7 @@ MonoBehaviour:
   textSpeed: 0.06
   spaceSpeed: 0
   lineDelay: 2
-  isDelay: 0
+  isDelay: 1
 --- !u!1 &727075185
 GameObject:
   m_ObjectHideFlags: 0

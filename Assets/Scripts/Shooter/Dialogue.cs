@@ -47,16 +47,22 @@ public class Dialogue : MonoBehaviour
             if (c == ' ')
             {
                 yield return new WaitForSeconds(spaceSpeed);
-
             }
-                dialog.text += c;
-                yield return new WaitForSeconds(textSpeed);
+
+            dialog.text += c;
+            yield return new WaitForSeconds(textSpeed);
                 
         }
 
-        StartCoroutine(LineDelay());
+        if (isDelay)
+        {
+            StartCoroutine(LineDelay());
+        }
+        else
+        {
+            Nextline();
+        }
         
-
     }
 
     IEnumerator LineDelay()
