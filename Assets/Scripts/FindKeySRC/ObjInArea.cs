@@ -14,7 +14,7 @@ public class ObjInArea : MonoBehaviour
         {
                 SpawnKey.instance.GarbageInBin = true;
         }
-        if (other.gameObject.name == "Key")
+        if (other.gameObject.name == "Key" && this.gameObject.name == "Door")
         {
            Destroy(this.gameObject);
 
