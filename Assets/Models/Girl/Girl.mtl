@@ -1,0 +1,270 @@
+newmtl blinn1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+newmtl blinn2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 0.16 0.16 0.16
+map_Kd bluePurple.jpg
+Ni 1.00
+Ks 0.24 0.00 0.24
+newmtl blinn4SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd -mm_0_0.262821_bluePurple.jpg
+Ni 1.00
+Ks 0.00 0.00 0.00
+newmtl blinn5SG
+illum 4
+Kd 1.00 0.86 0.81
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.00 0.00 0.00
+newmtl blinn8SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd blanket.jpg
+Ni 1.00
+Ks 0.00 0.00 0.00
+newmtl blinn9SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd bluePurple.jpg
+Ni 1.00
+Ks 0.00 0.00 0.00
+newmtl blinn10SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd kloofendal_48d_partly_cloudy_puresky_2k.hdr
+Ni 1.00
+Ks 0.50 0.50 0.50
+newmtl blinn12SG
+illum 4
+Kd 0.29 0.32 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+bump  -bm 0.238095 -s_0.2_0.2_blanket.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+newmtl blinn16SG
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.00 0.00 0.00
+newmtl blinn17SG
+illum 4
+Kd 0.37 0.37 0.37
+Ka 0.14 0.14 0.14
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+newmtl blinn18SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd flower-7075771_640.jpg
+Ni 1.00
+Ks 0.50 0.50 0.50
+newmtl blinn19SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd forest-7383165_640.jpg
+Ni 1.00
+Ks 0.50 0.50 0.50
+newmtl blinn20SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd river-7384240_640.jpg
+Ni 1.00
+Ks 0.50 0.50 0.50
+newmtl blinn24SG
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.06 0.06 0.06
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+newmtl blinn25SG
+illum 4
+Kd 0.50 0.50 0.50
+Ka 0.00 0.00 0.00
+Tf 0.31 0.31 0.31
+Ni 1.00
+Ks 0.50 0.50 0.50
+newmtl blinn26SG
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+newmtl blinn27SG
+illum 4
+Kd 0.13 0.13 0.13
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+newmtl initialShadingGroup
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 0.00
+newmtl lambert5SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd bluePurple.jpg
+Ni 1.00
+newmtl lambert6SG
+illum 4
+Kd 0.17 0.14 0.26
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert7SG
+illum 4
+Kd 0.44 0.28 0.24
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert8SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd painting-7027907_640.jpg
+Ni 1.00
+newmtl lambert9SG
+illum 4
+Kd 0.50 0.35 0.17
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert10SG
+illum 4
+Kd 0.11 0.11 0.11
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert11SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd paint4.jpg
+Ni 1.00
+newmtl lambert12SG
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert13SG
+illum 4
+Kd 1.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert14SG
+illum 4
+Kd 0.00 0.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert21SG
+illum 4
+Kd 1.00 1.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert22SG
+illum 4
+Kd 0.50 0.35 0.17
+Ka 0.18 0.18 0.18
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert23SG
+illum 4
+Kd 0.05 0.05 0.05
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert24SG
+illum 4
+Kd 0.44 0.36 0.26
+Ka 0.11 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert25SG
+illum 4
+Kd 0.16 0.10 0.20
+Ka 0.16 0.10 0.20
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert26SG
+illum 4
+Kd 1.00 1.00 0.67
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert27SG
+illum 4
+Kd 0.00 0.19 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert28SG
+illum 4
+Kd 0.39 0.22 0.22
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert29SG
+illum 4
+Kd 0.46 0.32 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert30SG
+illum 4
+Kd 1.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl pasted__blinn1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 1.00 1.00 1.00
+newmtl surfaceShader1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 0.00
