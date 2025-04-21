@@ -13,7 +13,7 @@ public class PlatformerManager : MonoBehaviour
 
     [Header("|| <STATUS> ||")]
     private int Count = 0;
-    public List<GameObject> level = new List<GameObject>();
+    public List<GameObject> level;
     public bool isPlatformerEnd;
 
     [Header("|| <CONFIG> ||")]
