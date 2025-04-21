@@ -8,10 +8,9 @@ public class SpawnKey : MonoBehaviour
 
     public GameObject Key;
     public GameObject DollOnTableOBJ;
-    public GameObject GarbageInBinOBJ;
     public bool DollInBox = false ;
-    public bool GarbageInBin = false;
-    public bool FinishCleanRoom = false ;
+    public bool FinishCleanRoom = false;
+    public int GarbageInBin = 0;
 
     private void Start()
     {
@@ -19,7 +18,7 @@ public class SpawnKey : MonoBehaviour
     }
     public void ShowKey()
     {
-        if (DollInBox == true && GarbageInBin == true) 
+        if (DollInBox == true && GarbageInBin == 15) 
         {
             Key.SetActive(true);
         }

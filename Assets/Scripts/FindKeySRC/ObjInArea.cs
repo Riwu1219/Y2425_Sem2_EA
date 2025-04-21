@@ -14,11 +14,10 @@ public class ObjInArea : MonoBehaviour
                 SpawnKey.instance.DollOnTableOBJ.SetActive(true);
                 Destroy(other.gameObject);
         }
-        if (other.gameObject.name == "Garbage" && this.gameObject.name == "Bin" && SpawnKey.instance.FinishCleanRoom == false)
+        if (other.gameObject.tag == "Garbage" && this.gameObject.name == "Bin" && SpawnKey.instance.FinishCleanRoom == false)
         {
-                SpawnKey.instance.GarbageInBin = true;
+                SpawnKey.instance.GarbageInBin += 1;
                 SpawnKey.instance.ShowKey();
-                SpawnKey.instance.GarbageInBinOBJ.SetActive(true);
                 Destroy(other.gameObject);
         }
         if (other.gameObject.name == "Key" && this.gameObject.name == "Door" && SpawnKey.instance.FinishCleanRoom == false)
