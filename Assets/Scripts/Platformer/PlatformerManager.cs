@@ -33,9 +33,10 @@ public class PlatformerManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        spawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
         if (GameObject.FindGameObjectWithTag("Bubble") == null)
         {
-            Instantiate(bubblePrefab, spawnPoint);
+            Instantiate(bubblePrefab, spawnPoint.transform.position, Quaternion.identity);
         }
 
         if (goal == null)
@@ -45,13 +46,27 @@ public class PlatformerManager : MonoBehaviour
 
     }
 
+    //Reset level included(bubble location, spawn goal)
+    public void LevelRestart()
+    {
+        spawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
+
+        if (GameObject.FindGameObjectWithTag("Bubble") == null)
+        {
+            Instantiate(bubblePrefab, GameObject.FindGameObjectWithTag("Respawn").transform.position, Quaternion.identity);
+        }
+
+        Instantiate(goal, GameObject.FindGameObjectWithTag("Goal").transform.position, Quaternion.identity);
+        Destroy(GameObject.FindGameObjectWithTag("Bubble"));
+    }
+
     //Call by GoalScript
     public void LevelManager()
     {
         if (Count < level.Count)
         {
             Count++;
-            Destroy(level[Count-1]);
+            Destroy(GameObject.FindGameObjectWithTag("LevelObject"));
             
             Instantiate(level[Count]);
 
@@ -64,17 +79,5 @@ public class PlatformerManager : MonoBehaviour
 
     }
 
-    //Reset level included(bubble location, spawn goal)
-    public void LevelRestart()
-    {
-        spawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
-
-        if (GameObject.FindGameObjectWithTag("Bubble") == null)
-        {
-            Instantiate(bubblePrefab, spawnPoint);
-        }
-
-        Instantiate(goal, GameObject.FindGameObjectWithTag("Goal").transform.position, Quaternion.identity);
-        Destroy(GameObject.FindGameObjectWithTag("Bubble"));
-    }
+    
 }
