@@ -9,7 +9,7 @@ public class PlatformerManager : MonoBehaviour
     [SerializeField]
     [Header("-GetObject-")]
     private GameObject bubble;
-    public GameObject goal;
+    public GameObject goalPrefab;
 
     [Header("|| <STATUS> ||")]
     private int Count = 0;
@@ -33,17 +33,15 @@ public class PlatformerManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        goalPrefab = GameObject.FindGameObjectWithTag("Finish");
         spawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
+        goalPrefab.transform.position = GameObject.FindGameObjectWithTag("Goal").transform.position;
+
         if (GameObject.FindGameObjectWithTag("Bubble") == null)
         {
             Instantiate(bubblePrefab, spawnPoint.transform.position, Quaternion.identity);
         }
-
-        if (goal == null)
-        {
-            goal = GameObject.FindGameObjectWithTag("Goal") ;
-        }
-
+        
     }
 
     //Reset level included(bubble location, spawn goal)
@@ -53,10 +51,10 @@ public class PlatformerManager : MonoBehaviour
 
         if (GameObject.FindGameObjectWithTag("Bubble") == null)
         {
-            Instantiate(bubblePrefab, GameObject.FindGameObjectWithTag("Respawn").transform.position, Quaternion.identity);
+            Instantiate(bubblePrefab, spawnPoint);
         }
 
-        Instantiate(goal, GameObject.FindGameObjectWithTag("Goal").transform.position, Quaternion.identity);
+        Instantiate(goalPrefab, GameObject.FindGameObjectWithTag("Goal").transform.position, Quaternion.identity);
         Destroy(GameObject.FindGameObjectWithTag("Bubble"));
     }
 
@@ -67,7 +65,8 @@ public class PlatformerManager : MonoBehaviour
         {
             Count++;
             Destroy(GameObject.FindGameObjectWithTag("LevelObject"));
-            
+            Destroy(GameObject.FindGameObjectWithTag("Goal")); //confirm detele to avoid bug
+
             Instantiate(level[Count]);
 
             LevelRestart();
