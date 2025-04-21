@@ -30,6 +30,13 @@ public class DestroyOnClick : MonoBehaviour
                 Debug.Log("Hit: " + hit.collider.gameObject.name); // <<<<< should will show the name of the object hit
                 if (hit.collider != null && hit.collider.CompareTag("Bubble"))
                 {
+
+                    PlaySoundOnDestroy soundScript = hit.collider.GetComponent<PlaySoundOnDestroy>(); // call the script that plays the sound
+                    if (soundScript != null)
+                    {
+                        soundScript.PlayDeadSound(); // play the sound
+                    }
+
                     Destroy(hit.collider.gameObject);
                     killCount++;
                     UpdateKillCountUI();
