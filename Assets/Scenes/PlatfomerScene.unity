@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17511535, g: 0.21907772, b: 0.30137855, a: 1}
+  m_IndirectSpecularColor: {r: 0.17511046, g: 0.21907173, b: 0.30137092, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -172,7 +172,7 @@ MonoBehaviour:
   level:
   - {fileID: 8520372164738477927, guid: 621da665dce55ee43b363478cbe47153, type: 3}
   - {fileID: 8140656023070072614, guid: 54f2c60d3daca3a469230cd14cfa375f, type: 3}
-  - {fileID: 8520372164738477927, guid: 621da665dce55ee43b363478cbe47153, type: 3}
+  - {fileID: 8140656023070072614, guid: 033009e2b3651e24f91a4e52bb434688, type: 3}
   isPlatformerEnd: 0
   bubblePrefab: {fileID: 8355461907316043873, guid: bc8c60de6d786d947b9e0cc212e92838, type: 3}
   spawnPoint: {fileID: 0}
@@ -471,7 +471,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1666586216
 MonoBehaviour:
@@ -485,34 +485,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efdcd3fa264bd44499fc69bc8129569c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1713964441
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1713964442}
-  m_Layer: 0
-  m_Name: targetPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1713964442
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1713964441}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7736949, y: 2.1335793, z: -2.8966885}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
