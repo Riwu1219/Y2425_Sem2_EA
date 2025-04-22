@@ -1,25 +1,30 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
 
 public class PortalOut : MonoBehaviour
 {
-    public Transform targetPos;
+    public GameObject TeleportTarget;
+    public bool isCoolDown = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Bubble"))
+        if (other.CompareTag("Bubble") && !isCoolDown)
         {
             bubblePhysics bubblePhysicsScript = other.GetComponent<bubblePhysics>();
             if (bubblePhysicsScript != null)
             {
-                bubblePhysicsScript.enabled = false;
+                isCoolDown = true;
+                bubblePhysicsScript.isTeleport = true;
+                TeleportTarget.GetComponent<PortalOut>().isCoolDown = true;
+                other.transform.position = TeleportTarget.transform.position;
 
-                other.transform.position = targetPos.position;
-
-            }
-            else
-            {
-                  other.transform.position = targetPos.position;
             }
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        isCoolDown = false;
     }
 }

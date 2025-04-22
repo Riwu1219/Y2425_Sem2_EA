@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class bubblePhysics : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class bubblePhysics : MonoBehaviour
     public float stiffness = 1f;
     public float damping = 0.75f;
 
+    public bool isTeleport = false;
+
     private Mesh OriginalMesh, MeshClone;
     new private MeshRenderer renderer;
     private JellyVertex[] jv;
@@ -16,29 +19,50 @@ public class bubblePhysics : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Physics.gravity = new Vector3(0f, Gravity, 0f);
         OriginalMesh = GetComponent<MeshFilter>().sharedMesh;
-        MeshClone = Instantiate(OriginalMesh);
-        GetComponent<MeshFilter>().sharedMesh = MeshClone;
-        renderer = GetComponent<MeshRenderer>();
-        jv = new JellyVertex[MeshClone.vertices.Length];
-        for (int i = 0; i < MeshClone.vertices.Length; i++)
-            jv[i] = new JellyVertex(i, transform.TransformPoint(MeshClone.vertices[i]));
+        physcisSetup();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        vertexArray = OriginalMesh.vertices;
-        for (int i = 0; i < jv.Length; i++)
+        if (!isTeleport)
         {
-            Vector3 target = transform.TransformPoint(vertexArray[jv[i].ID]);
-            float intensity = (1 - (renderer.bounds.max.y - target.y) / renderer.bounds.size.y) * Intensity;
-            jv[i].Shake(target, Mass, stiffness, damping);
-            target = transform.InverseTransformPoint(jv[i].Position);
-            vertexArray[jv[i].ID] = Vector3.Lerp(vertexArray[jv[i].ID], target, intensity);
+            vertexArray = OriginalMesh.vertices;
+            for (int i = 0; i < jv.Length; i++)
+            {
+                Vector3 target = transform.TransformPoint(vertexArray[jv[i].ID]);
+
+
+                float intensity = (1 - (renderer.bounds.max.y - target.y) / renderer.bounds.size.y) * Intensity;
+                jv[i].Shake(target, Mass, stiffness, damping);
+                target = transform.InverseTransformPoint(jv[i].Position);
+                vertexArray[jv[i].ID] = Vector3.Lerp(vertexArray[jv[i].ID], target, intensity);
+
+
+
+            }
+            MeshClone.vertices = vertexArray;
         }
-        MeshClone.vertices = vertexArray;
+        else
+        {
+            
+            physcisSetup();
+            isTeleport = false;
+        }
+
+
+    }
+
+    public void physcisSetup()
+    {
+        Physics.gravity = new Vector3(0f, Gravity, 0f);
+        renderer = GetComponent<MeshRenderer>();
+        MeshClone = Instantiate(OriginalMesh);
+        GetComponent<MeshFilter>().sharedMesh = MeshClone;
+        jv = new JellyVertex[MeshClone.vertices.Length];
+        for (int i = 0; i < MeshClone.vertices.Length; i++)
+            jv[i] = new JellyVertex(i, transform.TransformPoint(MeshClone.vertices[i]));
     }
 
     public class JellyVertex

@@ -714,8 +714,25 @@ PrefabInstance:
       propertyPath: targetPos
       value: 
       objectReference: {fileID: 2600280993258519305}
+    - target: {fileID: 5684806187449741153, guid: 4df298eb87ead1542bf7c840344eff60, type: 3}
+      propertyPath: isCoolDown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684806187449741153, guid: 4df298eb87ead1542bf7c840344eff60, type: 3}
+      propertyPath: TeleportDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684806187449741153, guid: 4df298eb87ead1542bf7c840344eff60, type: 3}
+      propertyPath: TeleportTarget
+      value: 
+      objectReference: {fileID: 6016084528028069740}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4df298eb87ead1542bf7c840344eff60, type: 3}
+--- !u!1 &2497771227869312566 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1493120537383071156, guid: 4df298eb87ead1542bf7c840344eff60, type: 3}
+  m_PrefabInstance: {fileID: 3896032065117330306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8854730944722131191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5544826574715208565, guid: 4df298eb87ead1542bf7c840344eff60, type: 3}
@@ -776,10 +793,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5684806187449741153, guid: 4df298eb87ead1542bf7c840344eff60, type: 3}
+      propertyPath: targetPos
+      value: 
+      objectReference: {fileID: 8854730944722131191}
+    - target: {fileID: 5684806187449741153, guid: 4df298eb87ead1542bf7c840344eff60, type: 3}
+      propertyPath: isCoolDown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684806187449741153, guid: 4df298eb87ead1542bf7c840344eff60, type: 3}
+      propertyPath: TeleportDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684806187449741153, guid: 4df298eb87ead1542bf7c840344eff60, type: 3}
+      propertyPath: TeleportTarget
+      value: 
+      objectReference: {fileID: 2497771227869312566}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4df298eb87ead1542bf7c840344eff60, type: 3}
 --- !u!4 &808082031372337581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5544826574715208565, guid: 4df298eb87ead1542bf7c840344eff60, type: 3}
+  m_PrefabInstance: {fileID: 5171764284410610392}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6016084528028069740 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1493120537383071156, guid: 4df298eb87ead1542bf7c840344eff60, type: 3}
   m_PrefabInstance: {fileID: 5171764284410610392}
   m_PrefabAsset: {fileID: 0}
