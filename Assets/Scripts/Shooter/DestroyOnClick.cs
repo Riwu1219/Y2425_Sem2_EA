@@ -10,13 +10,10 @@ public class DestroyOnClick : MonoBehaviour
     public Vector3 maxSpawnPosition;
     public Text killCountText;
 
-    public Dialogue dialogueBox; 
-    public Dialogue dialogueBox2; 
+    public Dialogue dialogueBox;
+    public Dialogue dialogueBox2;
     public Dialogue dialogueBox3;
     public Dialogue dialogueBox4;
-
-
-    public AudioSource shootingSound;
 
     private int killCount = 0;
     private bool canRespawn = true;
@@ -31,39 +28,38 @@ public class DestroyOnClick : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        
+    }
+
+    public void SimulateShooting()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 1000f))
         {
-            shootingSound.Play(); // play shooting sound
-
-
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, 1000f))
+            if (hit.collider != null && hit.collider.CompareTag("Bubble"))
             {
-                if (hit.collider != null && hit.collider.CompareTag("Bubble"))
+                PlaySoundOnDestroy soundScript = hit.collider.GetComponent<PlaySoundOnDestroy>();
+                if (soundScript != null)
                 {
-                    PlaySoundOnDestroy soundScript = hit.collider.GetComponent<PlaySoundOnDestroy>();
-                    if (soundScript != null)
-                    {
-                        soundScript.PlayDeadSound();
-                    }
+                    soundScript.PlayDeadSound();
+                }
 
-                    Destroy(hit.collider.gameObject);
-                    killCount++;
-                    UpdateKillCountUI();
+                Destroy(hit.collider.gameObject);
+                killCount++;
+                UpdateKillCountUI();
 
-                    // CHECK FOR DIALOGUE HERE  
-                    CheckForDialogue();
+                // CHECK FOR DIALOGUE HERE  
+                CheckForDialogue();
 
-                    if (killCount < 30 && canRespawn)
-                    {
-                        StartCoroutine(RespawnBubble());
-                    }
-                    else
-                    {
-                        canRespawn = false;
-                    }
+                if (killCount < 30 && canRespawn)
+                {
+                    StartCoroutine(RespawnBubble());
+                }
+                else
+                {
+                    canRespawn = false;
                 }
             }
         }
