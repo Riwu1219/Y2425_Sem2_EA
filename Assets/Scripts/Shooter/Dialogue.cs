@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -13,35 +12,32 @@ public class Dialogue : MonoBehaviour
     public string[] lines;
 
     [Header("|| <CONFIG> ||")]
-    public float textSpeed;
-    public float spaceSpeed;
-    public float lineDelay;
-    public bool isDelay;
+    public float textSpeed; 
+    public float spaceSpeed;  
+    public float lineDelay;   
+    public bool isDelay;     
 
     private int index;
-
+    private bool isDialogueActive = false; 
 
     void Start()
     {
-        dialog.text = string.Empty; // Clear the text at the start
-        StartDialogue();
+        dialog.text = string.Empty; 
+        
     }
 
-    void Update()
+    public void StartDialogue()
     {
+        if (isDialogueActive) return;
 
-    }
-
-
-    void StartDialogue()
-    {
-        //Set start text line to first line(0) in list
+        isDialogueActive = true; 
         index = 0;
-        StartCoroutine(TypeLine());
+        StartCoroutine(TypeLine()); 
     }
 
     IEnumerator TypeLine()
     {
+        dialog.text = string.Empty; 
         foreach (char c in lines[index].ToCharArray())
         {
             if (c == ' ')
@@ -49,9 +45,8 @@ public class Dialogue : MonoBehaviour
                 yield return new WaitForSeconds(spaceSpeed);
             }
 
-            dialog.text += c;
+            dialog.text += c; // add character to text 
             yield return new WaitForSeconds(textSpeed);
-                
         }
 
         if (isDelay)
@@ -62,12 +57,11 @@ public class Dialogue : MonoBehaviour
         {
             Nextline();
         }
-        
     }
 
     IEnumerator LineDelay()
     {
-        yield return new WaitForSeconds(lineDelay);
+        yield return new WaitForSeconds(lineDelay); 
         Nextline();
     }
 
@@ -75,14 +69,14 @@ public class Dialogue : MonoBehaviour
     {
         if (index < lines.Length - 1)
         {
-            index++;
-            dialog.text = string.Empty; // Clear the text for the next line
+            index++; // add 1 to index
+            dialog.text = string.Empty; //clear text
             StartCoroutine(TypeLine());
         }
         else
         {
-           gameObject.SetActive(false); // Deactivate the dialogue box when done
+            isDialogueActive = false;
+            gameObject.SetActive(false); 
         }
     }
-
 }

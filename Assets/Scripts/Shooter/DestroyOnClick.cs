@@ -10,51 +10,60 @@ public class DestroyOnClick : MonoBehaviour
     public Vector3 maxSpawnPosition;
     public Text killCountText;
 
+    public Dialogue dialogueBox1; 
+    public Dialogue dialogueBox2; 
+    public Dialogue dialogueBox3;
+    public Dialogue dialogueBox4; 
+
     private int killCount = 0;
     private bool canRespawn = true;
 
     void Start()
     {
         UpdateKillCountUI();
+        // activate the first dialogue box
+        dialogueBox1.gameObject.SetActive(true);
+        dialogueBox1.StartDialogue();
     }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)); 
+            Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, 1000f))
             {
-                Debug.Log("Hit: " + hit.collider.gameObject.name); // <<<<< should will show the name of the object hit
                 if (hit.collider != null && hit.collider.CompareTag("Bubble"))
                 {
-
-                    PlaySoundOnDestroy soundScript = hit.collider.GetComponent<PlaySoundOnDestroy>(); // call the script that plays the sound
+                    PlaySoundOnDestroy soundScript = hit.collider.GetComponent<PlaySoundOnDestroy>();
                     if (soundScript != null)
                     {
-                        soundScript.PlayDeadSound(); // play the sound
+                        soundScript.PlayDeadSound();
                     }
 
                     Destroy(hit.collider.gameObject);
                     killCount++;
                     UpdateKillCountUI();
 
-                    if (killCount < 20 && canRespawn) // <<<<<<<<<<< (Win condititon >=10)
+                    // CHECK FOR DIALOGUE HERE  
+                    CheckForDialogue();
+
+                    if (killCount < 30 && canRespawn)
                     {
                         StartCoroutine(RespawnBubble());
                     }
                     else
                     {
-                        canRespawn = false; // STOP RESPAWNING
+                        canRespawn = false;
                     }
                 }
             }
         }
     }
 
-    IEnumerator RespawnBubble() //wait for a few seconds before respawning the bubble
+    IEnumerator RespawnBubble()
     {
         yield return new WaitForSeconds(respawnDelay);
 
@@ -67,8 +76,27 @@ public class DestroyOnClick : MonoBehaviour
         Instantiate(bubblePrefab, randomPosition, Quaternion.identity);
     }
 
-    void UpdateKillCountUI()    
+    void UpdateKillCountUI()
     {
-        killCountText.text = "x" + killCount; // Update the UI text
+        killCountText.text = "x" + killCount;
+    }
+
+    void CheckForDialogue()
+    {
+        if (killCount == 10 && !dialogueBox2.gameObject.activeSelf)
+        {
+            dialogueBox2.gameObject.SetActive(true); // activate the second dialogue box
+            dialogueBox2.StartDialogue();
+        }
+        else if (killCount == 20 && !dialogueBox3.gameObject.activeSelf)
+        {
+            dialogueBox3.gameObject.SetActive(true); // activate the third dialogue box
+            dialogueBox3.StartDialogue();
+        }
+        else if (killCount == 30 && !dialogueBox4.gameObject.activeSelf)
+        {
+            dialogueBox4.gameObject.SetActive(true); // activate the fourth dialogue box
+            dialogueBox4.StartDialogue();
+        }
     }
 }
