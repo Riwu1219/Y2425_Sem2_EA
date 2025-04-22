@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1243,10 +1243,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog: {fileID: 1540058439}
   lines:
-  - Welcome to..(Type words)
-  - Please find the doll and garbage
-  - And put it in the right place
-  - Then the key will show up on the table
+  - /Welcome to..(Type words)
+  - Please find the doll and put it in the right place
+  - Also please tidy up the room's garbage
   textSpeed: 0.06
   spaceSpeed: 0
   lineDelay: 2
@@ -2392,7 +2391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog: {fileID: 3014372}
   lines:
-  - You unlocked the key!
+  - /You unlocked the key!
   - Now use the key to open the door!
   textSpeed: 0.06
   spaceSpeed: 0
