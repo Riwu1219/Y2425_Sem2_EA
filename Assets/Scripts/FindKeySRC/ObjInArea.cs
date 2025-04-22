@@ -22,9 +22,9 @@ public class ObjInArea : MonoBehaviour
         }
         if (other.gameObject.name == "Key" && this.gameObject.name == "Door" && SpawnKey.instance.FinishCleanRoom == false)
         {
-           Destroy(this.gameObject);
+            SpawnKey.instance.KeyDestrory();
+            Destroy(this.gameObject);
            Destroy(this);
-           SpawnKey.instance.KeyDestrory();
 
         }
     }
