@@ -42,8 +42,9 @@ public class ConfigSceneController : MonoBehaviour
         {
             //If 0, null | If 1, Left | If 2, Right
             case 0:
-                Debug.Log("Get:0 ,Not Vaild");
-                Debug.Log(mousePosition);
+                Debug.Log("Get:0 ,TestAudioVolume");
+                Debug.Log("MousePosition" + mousePosition);
+                Instantiate(bubblePrefab, spawner).GetComponent<bubbleMovement>().disableControl = true;
                 break;
 
             case 1:
@@ -62,13 +63,13 @@ public class ConfigSceneController : MonoBehaviour
     private int GetMouseOnViewportSide(float value)
     {
         //If leftside :0 false
-        if (mousePosition.x > 0 && mousePosition.x < 0.5)
+        if (mousePosition.x > 0 && mousePosition.x < 0.33)
         {
             return 1;
         }
 
         //If rightside :1 true
-        if (mousePosition.x > 0.5 && mousePosition.x <= 1)
+        if (mousePosition.x > 0.66 && mousePosition.x <= 1)
         {
             return 2;
         }
