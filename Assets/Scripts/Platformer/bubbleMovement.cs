@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -16,11 +17,14 @@ public class bubbleMovement : MonoBehaviour
     public bool Canceled = false;
     public bool canMove = true;
     public bool isDead = false;
+    public bool fallOut = false;
+
 
     [Header("|| <Component> ||")]
     public ObjectLocator objLocator;
     public AudioSource landSound;
     public AudioSource jumpSound;
+    public AudioSource destroySound;
 
     private Vector3 mousePosition;
     private Vector3 bubbleLocationOnScreen;
@@ -124,7 +128,7 @@ public class bubbleMovement : MonoBehaviour
                 Debug.Log(force);
                 force = force.normalized * (maxMagnitude * 2);
                 Debug.Log(force + " normalized");
-                force = new Vector3(force.x * moveForce/2, force.y * moveForce/2, 0);
+                force = new Vector3(force.x * moveForce / 2, force.y * moveForce / 2, 0);
                 Debug.Log(force + " final");
             }
             else
@@ -144,9 +148,14 @@ public class bubbleMovement : MonoBehaviour
 
     private void checkLocation()
     {
-        if (gameObject.transform.position.y <= -2)
+        if (gameObject.transform.position.y <= -2 && fallOut == false)
         {
-            SelfDestroy();
+            fallOut = true;
+            rb.isKinematic = true;
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<SphereCollider>().enabled = false;
+            animator.Play("Dead");
+            Invoke("SelfDestroy", 1);
         }
     }
 
@@ -166,10 +175,16 @@ public class bubbleMovement : MonoBehaviour
     {
         DeadVFX.Play();
     }
-        
+
+    public void PlayDestroySound()
+    {
+        destroySound.Play();
+    }
+
     public void SelfDestroy()
     {
         Destroy(gameObject);
     }
+
 
 }

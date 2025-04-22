@@ -110,9 +110,11 @@ MonoBehaviour:
   Canceled: 0
   canMove: 0
   isDead: 0
+  fallOut: 0
   objLocator: {fileID: 0}
   landSound: {fileID: 8355461907316043875}
-  jumpSound: {fileID: 8355461907316043872}
+  jumpSound: {fileID: 8355461907316043875}
+  destroySound: {fileID: 8355461907316043872}
 --- !u!114 &8355461907316043903
 MonoBehaviour:
   m_ObjectHideFlags: 0
