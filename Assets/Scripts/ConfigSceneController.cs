@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.Rendering;
+using TMPro;
 
 public class ConfigSceneController : MonoBehaviour
 {
@@ -14,6 +11,8 @@ public class ConfigSceneController : MonoBehaviour
     [Header("Config")]
     public GameObject bubblePrefab;
     public Transform spawner;
+    public TextMeshProUGUI volumeIndexText;
+    public Animator volumeIndexAnimator;
 
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private int volumeIndex; //Only value in 0 to 10 is allowed
@@ -22,7 +21,7 @@ public class ConfigSceneController : MonoBehaviour
     {
         Instance = this;
         volumeIndex = PlayerPrefs.GetInt("AudioVolume");
-
+        volumeIndexText.text = "" + volumeIndex;
     }
 
     private void Update()
@@ -31,7 +30,9 @@ public class ConfigSceneController : MonoBehaviour
         {
             AdjustAudioVolume();
             PlayerPrefs.SetInt("AudioVolume", volumeIndex);
+            volumeIndexAnimator.Play("VolumeText_Fade_anim");
             audioMixer.SetFloat("Master", CalculateAudio_dB());
+            volumeIndexText.text = ""+volumeIndex;
         }
 
     }
