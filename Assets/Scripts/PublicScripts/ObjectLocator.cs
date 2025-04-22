@@ -8,7 +8,10 @@ public class ObjectLocator : MonoBehaviour
     private GameObject targetObj; // The game object to track on Screen
     private Transform target;
 
+    [Header("Target Tag")]
     public string objectTag;
+
+    [Header("Used Camera")]
     public Camera currentCamera;
 
     void Start()

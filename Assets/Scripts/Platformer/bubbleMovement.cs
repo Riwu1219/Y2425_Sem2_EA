@@ -18,6 +18,7 @@ public class bubbleMovement : MonoBehaviour
     public bool canMove = true;
     public bool isDead = false;
     public bool fallOut = false;
+    public bool disableControl = false;
 
 
     [Header("|| <Component> ||")]
@@ -76,7 +77,7 @@ public class bubbleMovement : MonoBehaviour
 
     void Update()
     {
-        if (!isDead)
+        if (!isDead && !disableControl)
         {
             checkLocation();
             ApplyForce();
