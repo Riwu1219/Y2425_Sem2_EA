@@ -12,7 +12,7 @@ public class SpawnKey : MonoBehaviour
     public bool FinishCleanRoom = false;
     public bool StartGame = false;
     public int GarbageInBin = 0;
-
+    public Animator Anim;
     public DialogueManager dialogueManager; 
 
     private void Start()
@@ -42,6 +42,7 @@ public class SpawnKey : MonoBehaviour
     public void KeyDestrory()
         {
             Key.SetActive(false);
+            Anim.SetTrigger("DoorOpen");
             FinishCleanRoom = true;
         }
     IEnumerator SpawnDelay()

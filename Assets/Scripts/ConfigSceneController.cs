@@ -95,7 +95,7 @@ public class ConfigSceneController : MonoBehaviour
         volumeIndex = Mathf.Clamp(volumeIndex, 0, 10);
         float dB = volumeIndex / 10f;
         Debug.Log(dB);
-        dB = Mathf.Log10(volumeIndex) * 20;
+        dB = Mathf.Log10(dB) * 20;
         return dB;
     }
 
