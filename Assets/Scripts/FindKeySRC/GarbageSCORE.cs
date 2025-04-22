@@ -6,6 +6,7 @@ public class GarbageSCORE : MonoBehaviour
 {
     public static GarbageSCORE instance;
     public TMP_Text GarbageInBinNumber;
+    public GameObject GarbageInBinNumberObj;
 
     void Start()
     {
@@ -20,5 +21,9 @@ public class GarbageSCORE : MonoBehaviour
     public void ScoreUpdate(int num) 
     {
         GarbageInBinNumber.text = "PLayer Score:" + num;
+        if (SpawnKey.instance.StartGame)
+        { 
+            GarbageInBinNumberObj.SetActive(true); 
+        }
     }
 }

@@ -10,6 +10,7 @@ public class SpawnKey : MonoBehaviour
     public GameObject DollOnTableOBJ;
     public bool DollInBox = false;
     public bool FinishCleanRoom = false;
+    public bool StartGame = false;
     public int GarbageInBin = 0;
 
     public DialogueManager dialogueManager; 
@@ -19,7 +20,7 @@ public class SpawnKey : MonoBehaviour
         instance = this;
         if (dialogueManager != null)
         {
-            dialogueManager.ShowFirstDialogue(); //Call the first dialogue at the start
+            StartCoroutine(SpawnDelay());
         }
     }
 
@@ -28,21 +29,26 @@ public class SpawnKey : MonoBehaviour
         if (DollInBox && GarbageInBin == 15)
         {
             Key.SetActive(true);
+            dialogueManager.ShowSecondDialogue();
         }
     }
-
-    public void KeyActivate()
+ /*   public void KeyActivate()
     {
         Key.SetActive(false);
         FinishCleanRoom = true;
         dialogueManager.ShowSecondDialogue(); //CALL THE SECOND DIALOGUE WHEM THE KEY IS ACTIVATED
     }
-
-
+ */
     public void KeyDestrory()
         {
             Key.SetActive(false);
             FinishCleanRoom = true;
         }
+    IEnumerator SpawnDelay()
+    {
+        dialogueManager.ShowFirstDialogue(); //Call the first dialogue at the start
+        yield return new WaitForSeconds(15);
+        StartGame = true;
+    }
 }
 

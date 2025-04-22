@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
 
     void Spawn()
     {
-        if (SpawnKey.instance.FinishCleanRoom == false && SpawnKey.instance.GarbageInBin < 15 && SpawnCount < 15)
+        if (SpawnKey.instance.StartGame && SpawnKey.instance.GarbageInBin < 15 && SpawnCount < 15)
         {
             int spwanpointIndex = Random.Range(0, SpawnPoint.Length);
             int SpawnEnemyIndex = Random.Range(0, Garbage.Length);
