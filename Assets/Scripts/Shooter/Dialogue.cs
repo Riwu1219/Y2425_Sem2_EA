@@ -12,32 +12,36 @@ public class Dialogue : MonoBehaviour
     public string[] lines;
 
     [Header("|| <CONFIG> ||")]
-    public float textSpeed; 
-    public float spaceSpeed;  
-    public float lineDelay;   
-    public bool isDelay;     
+    public float textSpeed;
+    public float spaceSpeed;
+    public float lineDelay;
+    public bool isDelay;
 
     private int index;
-    private bool isDialogueActive = false; 
+    private bool isDialogueActive = false;
 
     void Start()
     {
-        dialog.text = string.Empty; 
-        
+        dialog.text = string.Empty;
     }
 
     public void StartDialogue()
     {
         if (isDialogueActive) return;
 
-        isDialogueActive = true; 
+        isDialogueActive = true;
         index = 0;
-        StartCoroutine(TypeLine()); 
+        StartCoroutine(TypeLine());
+    }
+
+    public void StartFirstDialogue()
+    {
+        StartDialogue(); //Start the first dialogue
     }
 
     IEnumerator TypeLine()
     {
-        dialog.text = string.Empty; 
+        dialog.text = string.Empty;
         foreach (char c in lines[index].ToCharArray())
         {
             if (c == ' ')
@@ -45,7 +49,7 @@ public class Dialogue : MonoBehaviour
                 yield return new WaitForSeconds(spaceSpeed);
             }
 
-            dialog.text += c; // add character to text 
+            dialog.text += c; // add the character to the text
             yield return new WaitForSeconds(textSpeed);
         }
 
@@ -61,7 +65,7 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator LineDelay()
     {
-        yield return new WaitForSeconds(lineDelay); 
+        yield return new WaitForSeconds(lineDelay);
         Nextline();
     }
 
@@ -69,14 +73,14 @@ public class Dialogue : MonoBehaviour
     {
         if (index < lines.Length - 1)
         {
-            index++; // add 1 to index
-            dialog.text = string.Empty; //clear text
+            index++; // add 1 to the index
+            dialog.text = string.Empty; // clear the text
             StartCoroutine(TypeLine());
         }
         else
         {
             isDialogueActive = false;
-            gameObject.SetActive(false); 
+            gameObject.SetActive(false);  
         }
     }
 }

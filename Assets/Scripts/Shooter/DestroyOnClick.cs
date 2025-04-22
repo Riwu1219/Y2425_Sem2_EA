@@ -10,7 +10,7 @@ public class DestroyOnClick : MonoBehaviour
     public Vector3 maxSpawnPosition;
     public Text killCountText;
 
-    public Dialogue dialogueBox1; 
+    public Dialogue dialogueBox; 
     public Dialogue dialogueBox2; 
     public Dialogue dialogueBox3;
     public Dialogue dialogueBox4;
@@ -25,8 +25,8 @@ public class DestroyOnClick : MonoBehaviour
     {
         UpdateKillCountUI();
         // activate the first dialogue box
-        dialogueBox1.gameObject.SetActive(true);
-        dialogueBox1.StartDialogue();
+        dialogueBox.gameObject.SetActive(true);
+        dialogueBox.StartDialogue();
     }
 
     void Update()

@@ -519,7 +519,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27992
+  m_Name: pb_Mesh31766
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -922,7 +922,7 @@ MonoBehaviour:
   minSpawnPosition: {x: -5, y: 1.19, z: -3.59}
   maxSpawnPosition: {x: 5, y: 4.3, z: -1.14}
   killCountText: {fileID: 1702428846}
-  dialogueBox1: {fileID: 2055324123}
+  dialogueBox: {fileID: 2055324123}
   dialogueBox2: {fileID: 256920420}
   dialogueBox3: {fileID: 745151019}
   dialogueBox4: {fileID: 212338866}
