@@ -22,8 +22,7 @@ public class bubbleMovement : MonoBehaviour
 
     [Header("|| <Component> ||")]
     public ObjectLocator objLocator;
-    public AudioSource landSound;
-    public AudioSource jumpSound;
+    public AudioSource landJumpSound;
     public AudioSource destroySound;
 
     private Vector3 mousePosition;
@@ -50,7 +49,7 @@ public class bubbleMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Moveable_Surface"))
         {
-            landSound.Play();
+            PlayLandJumpSound();
         }
     }
 
@@ -70,7 +69,7 @@ public class bubbleMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Moveable_Surface"))
         {
-            jumpSound.Play();
+            PlayLandJumpSound();
             canMove = false;
         }
     }
@@ -103,7 +102,7 @@ public class bubbleMovement : MonoBehaviour
 
             //Calculate
             curMagnitude = Mathf.Sqrt(Mathf.Pow(mousePosition.x - bubbleLocationOnScreen.x, 2) + Mathf.Pow(mousePosition.y - bubbleLocationOnScreen.y, 2));
-            Debug.Log(curMagnitude);
+            //Debug.Log(curMagnitude);
             x = mousePosition.x - bubbleLocationOnScreen.x;
             y = mousePosition.y - bubbleLocationOnScreen.y;
 
@@ -125,11 +124,11 @@ public class bubbleMovement : MonoBehaviour
         {
             if (curMagnitude > maxMagnitude)
             {
-                Debug.Log(force);
+                //Debug.Log(force);
                 force = force.normalized * (maxMagnitude * 2);
-                Debug.Log(force + " normalized");
+                //Debug.Log(force + " normalized");
                 force = new Vector3(force.x * moveForce / 2, force.y * moveForce / 2, 0);
-                Debug.Log(force + " final");
+                //Debug.Log(force + " final");
             }
             else
             {
@@ -137,12 +136,12 @@ public class bubbleMovement : MonoBehaviour
                 x = x * moveForce;
                 y = y * moveForce + moveHeightOffset;
                 force = new Vector3(x, y, 0);
-                Debug.Log(force + " final < max");
+                //Debug.Log(force + " final < max");
             }
 
             rb.AddForce(force);
             canMove = false;
-            Debug.Log("Moved");
+            //Debug.Log("Moved");
         }
     }
 
@@ -169,6 +168,11 @@ public class bubbleMovement : MonoBehaviour
     }
 
 
+    public void PlayLandJumpSound()
+    {
+        landJumpSound.pitch = Random.Range(1f, 1.2f);
+        landJumpSound.Play();
+    }
 
     //Used by Animation
     public void PlayDeadVFX()
