@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] Garbage;
     public float SpawnTimer;
     public Transform[] SpawnPoint;
-    public int SpawnCount = 0;
+    public int SpawnCount;
     void Start()
     {
         InvokeRepeating("Spawn", 2, SpawnTimer);
@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
 
     void Spawn()
     {
-        if (SpawnKey.instance.StartGame && SpawnKey.instance.GarbageInBin < 15 && SpawnCount < 15)
+        if (SpawnKey.instance.StartGame && SpawnKey.instance.GarbageInBin < 5 && SpawnCount < 5)
         {
             int spwanpointIndex = Random.Range(0, SpawnPoint.Length);
             int SpawnEnemyIndex = Random.Range(0, Garbage.Length);
