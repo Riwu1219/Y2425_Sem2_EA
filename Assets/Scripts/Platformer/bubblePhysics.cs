@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class bubblePhysics : MonoBehaviour
@@ -41,13 +39,14 @@ public class bubblePhysics : MonoBehaviour
             vertexArray[jv[i].ID] = Vector3.Lerp(vertexArray[jv[i].ID], target, intensity);
         }
         MeshClone.vertices = vertexArray;
-
     }
+
     public class JellyVertex
     {
         public int ID;
         public Vector3 Position;
         public Vector3 velocity, Force;
+
         public JellyVertex(int _id, Vector3 _pos)
         {
             ID = _id;
