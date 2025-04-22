@@ -34,8 +34,17 @@ public class PlatformerManager : MonoBehaviour
     private void FixedUpdate()
     {
         goalPrefab = GameObject.FindGameObjectWithTag("Finish");
-        spawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
-        goalPrefab.transform.position = GameObject.FindGameObjectWithTag("Goal").transform.position;
+
+        if (GameObject.FindGameObjectWithTag("Respawn") != null)
+        {
+            spawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
+        }
+
+        if (GameObject.FindGameObjectWithTag("Finish") != null)
+        {
+            goalPrefab.transform.position = GameObject.FindGameObjectWithTag("Goal").transform.position;
+        }
+
 
         if (GameObject.FindGameObjectWithTag("Bubble") == null)
         {
