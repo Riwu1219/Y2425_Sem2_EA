@@ -13,7 +13,10 @@ public class DestroyOnClick : MonoBehaviour
     public Dialogue dialogueBox1; 
     public Dialogue dialogueBox2; 
     public Dialogue dialogueBox3;
-    public Dialogue dialogueBox4; 
+    public Dialogue dialogueBox4;
+
+
+    public AudioSource shootingSound;
 
     private int killCount = 0;
     private bool canRespawn = true;
@@ -30,6 +33,9 @@ public class DestroyOnClick : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            shootingSound.Play(); // play shooting sound
+
+
             Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
             RaycastHit hit;
 
