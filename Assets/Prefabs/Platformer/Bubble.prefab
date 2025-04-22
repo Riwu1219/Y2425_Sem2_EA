@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 8355461907709194258}
   - component: {fileID: 8355461907709194732}
   - component: {fileID: 8355461907709194733}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BubbleDeadVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5191,8 +5191,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e2131b61115e78846befd9ac57178715, type: 2}
+  - {fileID: 2100000, guid: e2131b61115e78846befd9ac57178715, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
