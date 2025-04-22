@@ -26,7 +26,7 @@ public class SpawnKey : MonoBehaviour
 
     public void ShowKey()
     {
-        if (DollInBox && GarbageInBin == 15)
+        if (DollInBox && GarbageInBin == 5)
         {
             Key.SetActive(true);
             dialogueManager.ShowSecondDialogue();

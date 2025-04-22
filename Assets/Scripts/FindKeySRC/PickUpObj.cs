@@ -48,14 +48,22 @@ public class PickUpObj : MonoBehaviour
             {
                 objTransform.parent = cameraTrans;
                 objRigidbody.useGravity = false;
-                objRigidbody.isKinematic = true;
                 pickedup = true;
             }
             if (Input.GetMouseButtonUp(0))
             {
                 objTransform.parent = null;
                 objRigidbody.useGravity = true;
-                objRigidbody.isKinematic = false;
+                pickedup = false;
+            }
+        }
+        if (pickedup == true)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                objTransform.parent = null;
+                objRigidbody.useGravity = true;
+                objRigidbody.velocity = cameraTrans.forward * throwAmount * Time.deltaTime;
                 pickedup = false;
             }
         }
