@@ -3,7 +3,27 @@ guid: 1b7dfbb04b7a0d84e89fa68b4a9212de
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn28
+    second: {fileID: 2100000, guid: 8d6e663be4fafaf49a2ad246fa5b4992, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn29
+    second: {fileID: 2100000, guid: 2fb3d7e41aaaf7d4fa08771895e06107, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn30
+    second: {fileID: 2100000, guid: a1dbb4556c9a40a4da9268709d190bb7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn31
+    second: {fileID: 2100000, guid: e8b571962b6218543aea55fe4af0c86d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
