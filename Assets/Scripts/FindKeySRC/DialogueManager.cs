@@ -2,12 +2,12 @@
 
 public class DialogueManager : MonoBehaviour
 {
-    public Dialogue dialogueBox;  // 第一个对话框
-    public Dialogue dialogueBox2; // 第二个对话框
+    public Dialogue dialogueBox;  
+    public Dialogue dialogueBox2; 
 
     private void Start()
     {
-        ShowFirstDialogue(); // 游戏开始时显示第一个对话框
+        ShowFirstDialogue(); 
     }
 
     public void ShowFirstDialogue()

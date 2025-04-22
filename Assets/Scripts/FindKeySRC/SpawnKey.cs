@@ -12,14 +12,14 @@ public class SpawnKey : MonoBehaviour
     public bool FinishCleanRoom = false;
     public int GarbageInBin = 0;
 
-    public DialogueManager dialogueManager; // 引用到 DialogueManager
+    public DialogueManager dialogueManager; 
 
     private void Start()
     {
         instance = this;
         if (dialogueManager != null)
         {
-            dialogueManager.ShowFirstDialogue(); // 游戏开始时显示第一个对话框
+            dialogueManager.ShowFirstDialogue(); //Call the first dialogue at the start
         }
     }
 
@@ -35,7 +35,7 @@ public class SpawnKey : MonoBehaviour
     {
         Key.SetActive(false);
         FinishCleanRoom = true;
-        dialogueManager.ShowSecondDialogue(); // 激活钥匙后显示第二个对话框
+        dialogueManager.ShowSecondDialogue(); //CALL THE SECOND DIALOGUE WHEM THE KEY IS ACTIVATED
     }
 
 
