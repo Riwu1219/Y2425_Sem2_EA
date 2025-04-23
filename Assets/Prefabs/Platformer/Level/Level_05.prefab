@@ -1263,6 +1263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9027588739202351068, guid: 133780fbc37ceac4f8cbb11fb1a493da, type: 3}
+      propertyPath: TeleportTarget
+      value: 
+      objectReference: {fileID: 3181097069735104497}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 133780fbc37ceac4f8cbb11fb1a493da, type: 3}
 --- !u!4 &414329027530077421 stripped
@@ -1336,6 +1340,11 @@ PrefabInstance:
       objectReference: {fileID: 6770160787187374636}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 133780fbc37ceac4f8cbb11fb1a493da, type: 3}
+--- !u!1 &3181097069735104497 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8483496731831122698, guid: 133780fbc37ceac4f8cbb11fb1a493da, type: 3}
+  m_PrefabInstance: {fileID: 6457855904063943931}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8389653866800341296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3310392047113737675, guid: 133780fbc37ceac4f8cbb11fb1a493da, type: 3}

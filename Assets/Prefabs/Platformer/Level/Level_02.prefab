@@ -455,6 +455,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3310392047113737675, guid: 133780fbc37ceac4f8cbb11fb1a493da, type: 3}
   m_PrefabInstance: {fileID: 466276897563925726}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8341760569858058196 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8483496731831122698, guid: 133780fbc37ceac4f8cbb11fb1a493da, type: 3}
+  m_PrefabInstance: {fileID: 466276897563925726}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7851784596924864075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -510,6 +515,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9027588739202351068, guid: 133780fbc37ceac4f8cbb11fb1a493da, type: 3}
+      propertyPath: TeleportTarget
+      value: 
+      objectReference: {fileID: 8341760569858058196}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 133780fbc37ceac4f8cbb11fb1a493da, type: 3}
 --- !u!1 &1822914588802035009 stripped
