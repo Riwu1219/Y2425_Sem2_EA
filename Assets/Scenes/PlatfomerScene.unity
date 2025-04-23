@@ -170,9 +170,7 @@ MonoBehaviour:
   bubble: {fileID: 0}
   goalPrefab: {fileID: 3732434340939931317, guid: 6751c972a3be1634aa4ad6c642ecb8f4, type: 3}
   level:
-  - {fileID: 8140656023070072614, guid: 033009e2b3651e24f91a4e52bb434688, type: 3}
-  - {fileID: 8140656023070072614, guid: 90e2986ba7eceec42b7be2a133f9f02d, type: 3}
-  - {fileID: 8140656023070072614, guid: 90e2986ba7eceec42b7be2a133f9f02d, type: 3}
+  - {fileID: 8520372164738477927, guid: 9b4d786817cf91943a39049f8b0d9e9a, type: 3}
   - {fileID: 8140656023070072614, guid: 90e2986ba7eceec42b7be2a133f9f02d, type: 3}
   isPlatformerEnd: 0
   bubblePrefab: {fileID: 8355461907316043873, guid: bc8c60de6d786d947b9e0cc212e92838, type: 3}
