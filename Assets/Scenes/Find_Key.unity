@@ -5589,7 +5589,7 @@ MonoBehaviour:
   interactable: 0
   pickedup: 0
   objRigidbody: {fileID: 6648425210542644656}
-  throwAmount: 0
+  throwAmount: 15000
 --- !u!23 &6726834694247681842
 MeshRenderer:
   m_ObjectHideFlags: 0
