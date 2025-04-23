@@ -3,7 +3,7 @@ using System.Collections;
 
 public class bubblePhysics : MonoBehaviour
 {
-    public float Gravity = -9.81f;
+    public float GravityOffset = -9.81f;
     public float Intensity = 1f;
     public float Mass = 1f;
     public float stiffness = 1f;
@@ -56,7 +56,7 @@ public class bubblePhysics : MonoBehaviour
 
     public void physcisSetup()
     {
-        Physics.gravity = new Vector3(0f, Gravity, 0f);
+        Physics.gravity = new Vector3(0f, GravityOffset, 0f);
         renderer = GetComponent<MeshRenderer>();
         MeshClone = Instantiate(OriginalMesh);
         GetComponent<MeshFilter>().sharedMesh = MeshClone;
