@@ -27,8 +27,9 @@ public class ConfigSceneController : MonoBehaviour
     [SerializeField] private int volumeIndex; //Only value in 0 to 10 is allowed
 
     [Header("MouseHold tracking")]
-    private bool isHolding = false;
-    private float holdDuration = 3f;
+    public bool isHolding = false;
+    public float holdDuration = 3f;
+    [SerializeField] private float holdTimer = 0f;
 
     private void Awake()
     {
@@ -54,7 +55,7 @@ public class ConfigSceneController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !isBubbleAlive() && canAdjust)
         {
-            CheckMouseHold();
+
             AdjustAudioVolume();
             PlayerPrefs.SetInt("AudioVolume", volumeIndex);
             volumeIndexAnimator.Play("VolumeText_Fade_anim");
@@ -62,6 +63,7 @@ public class ConfigSceneController : MonoBehaviour
             volumeIndexText.text = "" + volumeIndex;
         }
 
+        CheckMouseHold();
     }
 
     private void AdjustAudioVolume()
@@ -128,32 +130,24 @@ public class ConfigSceneController : MonoBehaviour
 
     private void CheckMouseHold()
     {
-        if (Input.GetMouseButton(0)) // 0 is the left mouse button
+        if (Input.GetMouseButton(0))
         {
-            if (!isHolding)
+
+            isHolding = true; // Start holding
+            holdTimer += Time.deltaTime; // Increment the timer
+
+            if (holdTimer >= holdDuration)
             {
-                StartCoroutine(HoldMouse());
+                SwitchScene(); // Call after 3 seconds
+                isHolding = false; // Reset holding state
             }
         }
         else
         {
+            // Reset if the mouse button is released
             isHolding = false;
+            holdTimer = 0f; // Reset the timer
         }
-    }
-
-    private IEnumerator HoldMouse()
-    {
-        isHolding = true;
-        float timer = 0f;
-
-        while (timer < holdDuration)
-        {
-            timer += Time.deltaTime;
-            yield return null; // Wait for the next frame
-        }
-
-        // Trigger the desired action after holding for 3 seconds
-        SwitchScene();
     }
 
     private void SwitchScene()
