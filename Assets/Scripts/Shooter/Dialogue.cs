@@ -21,7 +21,7 @@ public class Dialogue : MonoBehaviour
     [Header("|| <Event> ||")]
     public bool EventAfterEnd;
     public bool triggerEvent = false;
-    public Dialogue NextDialogue; //If have can connect different dialog script together
+    public GameObject NextDialogue; //If have can connect different dialog script together
 
     private int index;
     private bool isDialogueActive = false;
@@ -92,7 +92,7 @@ public class Dialogue : MonoBehaviour
 
             if (NextDialogue != null)
             {
-                NextDialogue.StartFirstDialogue();
+                NextDialogue.GetComponent<Dialogue>().StartFirstDialogue();
             }
             
             triggerEvent = true;
