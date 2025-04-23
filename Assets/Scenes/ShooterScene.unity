@@ -3019,7 +3019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f44c2801b5f70564da4ac85b4f0bc904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 500
+  mouseSensitivity: 400
   orientation: {fileID: 1358234854}
   maxXRotation: 30
   maxYRotation: 50
@@ -3038,8 +3038,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubblePrefab: {fileID: 2322308710023600000, guid: 05f1c09cd3f78f7449924e6643f749d9, type: 3}
   respawnDelay: 0.3
-  minSpawnPosition: {x: -5, y: 1.19, z: -3.59}
-  maxSpawnPosition: {x: 5, y: 4.3, z: 0.35}
+  minSpawnPosition: {x: -7, y: 1.2, z: 4}
+  maxSpawnPosition: {x: 7, y: 4.5, z: -2}
   killCountText: {fileID: 1702428846}
   dialogueBox: {fileID: 2055324123}
   dialogueBox2: {fileID: 256920420}
@@ -10282,7 +10282,7 @@ AudioSource:
   m_GameObject: {fileID: 1519023268}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: e23c6bd10ab1fb240acd27446da3f754, type: 2}
   m_audioClip: {fileID: 8300000, guid: 871b7db625ee72c4d9fbcfa3908eeb21, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.675
@@ -10801,7 +10801,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710212045}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7736949, y: 2.1335793, z: -2.8966885}
+  m_LocalPosition: {x: 7, y: 6, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
