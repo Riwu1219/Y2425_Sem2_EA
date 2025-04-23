@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +19,8 @@ public class PlatformerManager : MonoBehaviour
     [Header("|| <CONFIG> ||")]
     public GameObject bubblePrefab;
     public Transform spawnPoint;
+
+    public GoableChangeScence goableChangeScence;
 
     private void Awake()
     {
@@ -70,22 +72,19 @@ public class PlatformerManager : MonoBehaviour
     //Call by GoalScript
     public void LevelManager()
     {
-        if (Count < level.Count)
+        if (Count < level.Count - 1)
         {
             Count++;
             Destroy(GameObject.FindGameObjectWithTag("LevelObject"));
-            Destroy(GameObject.FindGameObjectWithTag("Goal")); //confirm detele to avoid bug
+            Destroy(GameObject.FindGameObjectWithTag("Goal")); // confirm detele to avoid bug
 
             Instantiate(level[Count]);
 
             LevelRestart();
         }
         else
-        {
-            isPlatformerEnd = true;
+        {  
+            goableChangeScence.PlatformerToEnd();
         }
-
-    }
-
-    
+    }     
 }
