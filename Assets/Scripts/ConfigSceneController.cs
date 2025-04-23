@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
+using System.Collections;
 using TMPro;
 
 public class ConfigSceneController : MonoBehaviour
@@ -23,6 +25,10 @@ public class ConfigSceneController : MonoBehaviour
 
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private int volumeIndex; //Only value in 0 to 10 is allowed
+
+    [Header("MouseHold tracking")]
+    private bool isHolding = false;
+    private float holdDuration = 3f;
 
     private void Awake()
     {
@@ -48,11 +54,12 @@ public class ConfigSceneController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !isBubbleAlive() && canAdjust)
         {
+            CheckMouseHold();
             AdjustAudioVolume();
             PlayerPrefs.SetInt("AudioVolume", volumeIndex);
             volumeIndexAnimator.Play("VolumeText_Fade_anim");
             audioMixer.SetFloat("Master", CalculateAudio_dB());
-            volumeIndexText.text = ""+volumeIndex;
+            volumeIndexText.text = "" + volumeIndex;
         }
 
     }
@@ -119,4 +126,39 @@ public class ConfigSceneController : MonoBehaviour
         return dB;
     }
 
+    private void CheckMouseHold()
+    {
+        if (Input.GetMouseButton(0)) // 0 is the left mouse button
+        {
+            if (!isHolding)
+            {
+                StartCoroutine(HoldMouse());
+            }
+        }
+        else
+        {
+            isHolding = false;
+        }
+    }
+
+    private IEnumerator HoldMouse()
+    {
+        isHolding = true;
+        float timer = 0f;
+
+        while (timer < holdDuration)
+        {
+            timer += Time.deltaTime;
+            yield return null; // Wait for the next frame
+        }
+
+        // Trigger the desired action after holding for 3 seconds
+        SwitchScene();
+    }
+
+    private void SwitchScene()
+    {
+        Debug.Log("Mouse held for 3 seconds!");
+        SceneManager.LoadScene(1);
+    }
 }
