@@ -7,6 +7,7 @@ public class GoableChangeScence : MonoBehaviour
 {
     public bool ThisShooter, ThisKey, ThisPlatformer;
     public DestroyOnClick DestroyOnClick;
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +38,9 @@ public class GoableChangeScence : MonoBehaviour
 
     IEnumerator DelySwitchScreen()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(7);
+        anim.SetTrigger("Shake");
+        yield return new WaitForSeconds(5);
         SceneManager.LoadScene(3);
     }
     public void KeyToPlatformer() 
