@@ -8,18 +8,11 @@ public class ConfigSceneController : MonoBehaviour
 
     private Vector3 mousePosition;
 
-    [Header("Component")]
+    [Header("Config")]
     public GameObject bubblePrefab;
     public Transform spawner;
-
-    [Header("GetUI")]
     public TextMeshProUGUI volumeIndexText;
     public Animator volumeIndexAnimator;
-    public Dialogue dialogue;
-    public GameObject LoadinMenu;
-
-    [Header("Status")]
-    public bool canAdjust = false;
 
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private int volumeIndex; //Only value in 0 to 10 is allowed
@@ -31,22 +24,9 @@ public class ConfigSceneController : MonoBehaviour
         volumeIndexText.text = "" + volumeIndex;
     }
 
-    private void Start()
-    {
-        dialogue.StartFirstDialogue();
-    }
-
     private void Update()
     {
-        //check if dialog end function
-        if (dialogue.triggerEvent)
-        {
-            Debug.Log("Goup");
-            LoadinMenu.GetComponent<Animator>().Play("GoUp_anim");
-            canAdjust = true;
-        }
-
-        if (Input.GetMouseButtonDown(0) && !isBubbleAlive() && canAdjust)
+        if (Input.GetMouseButtonDown(0) && !isBubbleAlive())
         {
             AdjustAudioVolume();
             PlayerPrefs.SetInt("AudioVolume", volumeIndex);
