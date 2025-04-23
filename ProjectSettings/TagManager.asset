@@ -10,6 +10,7 @@ TagManager:
   - Goal
   - LevelObject
   - Garbage
+  - Guide
   layers:
   - Default
   - TransparentFX
