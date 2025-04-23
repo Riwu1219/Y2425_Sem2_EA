@@ -40,4 +40,8 @@ public class GoableChangeScence : MonoBehaviour
         yield return new WaitForSeconds(10);
         SceneManager.LoadScene(3);
     }
+    public void KeyToPlatformer() 
+    {
+        SceneManager.LoadScene(4);
+    }
 }

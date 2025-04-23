@@ -13,8 +13,8 @@ public class SpawnKey : MonoBehaviour
     public bool StartGame = false;
     public int GarbageInBin = 0;
     public Animator Anim;
-    public DialogueManager dialogueManager; 
-
+    public DialogueManager dialogueManager;
+    public GoableChangeScence GoableChangeScence;
     private void Start()
     {
         instance = this;
@@ -44,12 +44,20 @@ public class SpawnKey : MonoBehaviour
             Key.SetActive(false);
             Anim.SetTrigger("DoorOpen");
             FinishCleanRoom = true;
-        }
+            StartCoroutine(Delay());
+    }
     IEnumerator SpawnDelay()
     {
         dialogueManager.ShowFirstDialogue(); //Call the first dialogue at the start
         yield return new WaitForSeconds(15);
         StartGame = true;
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(10);
+        StartGame = true;
+        GoableChangeScence.KeyToPlatformer();
     }
 }
 
