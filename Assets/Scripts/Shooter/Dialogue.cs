@@ -17,8 +17,11 @@ public class Dialogue : MonoBehaviour
     public float spaceSpeed;
     public float lineDelay;
     public bool isDelay;
+
+    [Header("|| <Event> ||")]
     public bool EventAfterEnd;
     public bool triggerEvent = false;
+    public Dialogue NextDialogue; //If have can connect different dialog script together
 
     private int index;
     private bool isDialogueActive = false;
@@ -82,6 +85,12 @@ public class Dialogue : MonoBehaviour
         }
         else if (EventAfterEnd)
         {
+
+            if (NextDialogue != null)
+            {
+                NextDialogue.StartFirstDialogue();
+            }
+            
             triggerEvent = true;
         }
         else
