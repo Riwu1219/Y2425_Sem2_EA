@@ -20,7 +20,7 @@ public class GarbageSCORE : MonoBehaviour
 
     public void ScoreUpdate(int num) 
     {
-        GarbageInBinNumber.text = "PLayer Score:" + num;
+        GarbageInBinNumber.text = "PLayer Score:" + num + "/5";
         if (SpawnKey.instance.StartGame)
         { 
             GarbageInBinNumberObj.SetActive(true); 
