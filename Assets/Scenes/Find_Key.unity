@@ -702,7 +702,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 668917531}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 78485347088273937, guid: 04b717416cde3a64b8c6458fb967559a, type: 3}
       propertyPath: m_Name
@@ -710,19 +710,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 78485347088273939, guid: 04b717416cde3a64b8c6458fb967559a, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 78485347088273939, guid: 04b717416cde3a64b8c6458fb967559a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.9019167
+      value: 4.28
       objectReference: {fileID: 0}
     - target: {fileID: 78485347088273939, guid: 04b717416cde3a64b8c6458fb967559a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.839798
+      value: 3.5406208
       objectReference: {fileID: 0}
     - target: {fileID: 78485347088273939, guid: 04b717416cde3a64b8c6458fb967559a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.5868206
+      value: -2.103
       objectReference: {fileID: 0}
     - target: {fileID: 78485347088273939, guid: 04b717416cde3a64b8c6458fb967559a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -754,11 +754,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04b717416cde3a64b8c6458fb967559a, type: 3}
---- !u!4 &293471601 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 78485347088273939, guid: 04b717416cde3a64b8c6458fb967559a, type: 3}
-  m_PrefabInstance: {fileID: 293471600}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &299612749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,7 +1132,6 @@ Transform:
   - {fileID: 1048452156}
   - {fileID: 1856526795}
   - {fileID: 435086561}
-  - {fileID: 293471601}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1216,12 +1210,12 @@ AudioSource:
   m_GameObject: {fileID: 723365315}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: e23c6bd10ab1fb240acd27446da3f754, type: 2}
   m_audioClip: {fileID: 8300000, guid: 76a92bccfd6843940a7cad5115e1e2c7, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.05
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
