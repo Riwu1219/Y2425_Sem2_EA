@@ -138,7 +138,7 @@ public class ConfigSceneController : MonoBehaviour
 
             if (holdTimer >= holdDuration)
             {
-                SwitchScene(); // Call after 3 seconds
+                LoadSceneWithAnimation(); // Call after 3 seconds
                 isHolding = false; // Reset holding state
             }
         }
@@ -150,9 +150,14 @@ public class ConfigSceneController : MonoBehaviour
         }
     }
 
-    private void SwitchScene()
+    private void LoadSceneWithAnimation()
     {
-        Debug.Log("Mouse held for 3 seconds!");
+        LoadinMenu.GetComponent<Animator>().Play("GoDown_anim");
+        Invoke("LoadScene", 2f);
+    }
+
+    private void LoadScene()
+    {
         SceneManager.LoadScene(1);
     }
 }
