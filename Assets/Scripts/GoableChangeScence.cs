@@ -44,4 +44,9 @@ public class GoableChangeScence : MonoBehaviour
     {
         SceneManager.LoadScene(4);
     }
+
+    public void PlatformerToEnd () 
+    {
+        SceneManager.LoadScene(5);
+    }
 }
