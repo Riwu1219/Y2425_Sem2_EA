@@ -28,7 +28,11 @@ public class Dialogue : MonoBehaviour
 
     void Start()
     {
-        dialog.text = string.Empty;
+        if (dialog.text != null)
+        {
+            dialog.text = string.Empty;
+        }
+        
     }
 
     public void StartDialogue()
