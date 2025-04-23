@@ -13,9 +13,9 @@ public class Dialogue : MonoBehaviour
     public string[] lines;
 
     [Header("|| <CONFIG> ||")]
-    public float textSpeed;
-    public float spaceSpeed;
-    public float lineDelay;
+    public float textSpeed = 0.06f;
+    public float spaceSpeed = 0.02f;
+    public float lineDelay = 2f;
     public bool isDelay;
 
     [Header("|| <Event> ||")]

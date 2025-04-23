@@ -674,6 +674,7 @@ MonoBehaviour:
   ThisKey: 0
   ThisPlatformer: 0
   DestroyOnClick: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!114 &1039054419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -733,10 +734,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog: {fileID: 0}
   lines: []
-  textSpeed: 0
-  spaceSpeed: 0
-  lineDelay: 0
-  isDelay: 0
+  textSpeed: 0.06
+  spaceSpeed: 0.02
+  lineDelay: 2
+  isDelay: 1
   EventAfterEnd: 0
   triggerEvent: 0
   NextDialogue: {fileID: 0}
