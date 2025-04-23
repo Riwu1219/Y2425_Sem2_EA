@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Dialogue : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Dialogue : MonoBehaviour
     public float spaceSpeed;
     public float lineDelay;
     public bool isDelay;
+    public bool EventAfterEnd;
+    public bool triggerEvent;
 
     private int index;
     private bool isDialogueActive = false;
@@ -76,6 +79,10 @@ public class Dialogue : MonoBehaviour
             index++; // add 1 to the index
             dialog.text = string.Empty; // clear the text
             StartCoroutine(TypeLine());
+        }
+        else if (EventAfterEnd)
+        {
+            triggerEvent = true;
         }
         else
         {
