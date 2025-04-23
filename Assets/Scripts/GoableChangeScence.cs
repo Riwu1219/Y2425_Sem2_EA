@@ -11,27 +11,27 @@ public class GoableChangeScence : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (ThisShooter) 
+        if (ThisShooter)
         {
-            if(DestroyOnClick.dialogueBox4.isActiveAndEnabled) 
+            if (DestroyOnClick.dialogueBox4.isActiveAndEnabled)
             {
                 StartCoroutine(DelySwitchScreen());
             }
         }
     }
 
-    public void StarScenceEnd() 
+    public void StarScenceEnd()
     {
         SceneManager.LoadScene(2);
     }
 
-    public void EndScenceStart() 
+    public void EndScenceStart()
     {
         SceneManager.LoadScene(1);
     }
@@ -43,13 +43,22 @@ public class GoableChangeScence : MonoBehaviour
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene(3);
     }
-    public void KeyToPlatformer() 
+    public void KeyToPlatformer()
     {
         SceneManager.LoadScene(4);
     }
 
-    public void PlatformerToEnd () 
+    public void PlatformerToEnd()
     {
         SceneManager.LoadScene(5);
+    }
+
+    public void ExcuteGame()
+    {
+    #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false; // Stop play mode in the editor
+    #else
+                Application.Quit(); // Quit the application
+    #endif
     }
 }
