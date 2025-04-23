@@ -389,17 +389,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog: {fileID: 357730958}
   lines:
+  - . . .
+  - . . . . .
   - Before you start the game
   - Let's first adjust your game audio
-  - Clcik "Left" side to reduce audio volume
+  - ...
+  - Click "Left" side to reduce audio volume
   - '"Right" side to increase audio volume'
   - '"Center" to check audio volume'
   - Hold "Center" to check audio volume
   textSpeed: 0.06
   spaceSpeed: 0.02
-  lineDelay: 2
+  lineDelay: 3
   isDelay: 1
-  EventAfterEnd: 0
+  EventAfterEnd: 1
   triggerEvent: 0
 --- !u!114 &357730958
 MonoBehaviour:
@@ -828,8 +831,8 @@ MonoBehaviour:
   spawner: {fileID: 1413122801}
   volumeIndexText: {fileID: 710385888}
   volumeIndexAnimator: {fileID: 710385890}
-  dialogue: {fileID: 0}
-  LoadinMenu: {fileID: 0}
+  dialogue: {fileID: 357730957}
+  LoadinMenu: {fileID: 181375590}
   canAdjust: 0
   audioMixer: {fileID: 24100000, guid: e23c6bd10ab1fb240acd27446da3f754, type: 2}
   volumeIndex: 0
