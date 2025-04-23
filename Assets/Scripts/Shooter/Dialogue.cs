@@ -18,7 +18,7 @@ public class Dialogue : MonoBehaviour
     public float lineDelay;
     public bool isDelay;
     public bool EventAfterEnd;
-    public bool triggerEvent;
+    public bool triggerEvent = false;
 
     private int index;
     private bool isDialogueActive = false;

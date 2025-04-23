@@ -3,6 +3,7 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using TMPro;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class ConfigSceneController : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class ConfigSceneController : MonoBehaviour
     public bool isHolding = false;
     public float holdDuration = 3f;
     [SerializeField] private float holdTimer = 0f;
+    private bool TriggeredEvent = false;
 
     private void Awake()
     {
@@ -46,7 +48,7 @@ public class ConfigSceneController : MonoBehaviour
     private void Update()
     {
         //check if dialog end function
-        if (dialogue.triggerEvent)
+        if (dialogue.triggerEvent && canAdjust == false)
         {
             Debug.Log("Goup");
             LoadinMenu.GetComponent<Animator>().Play("GoUp_anim");
@@ -152,8 +154,13 @@ public class ConfigSceneController : MonoBehaviour
 
     private void LoadSceneWithAnimation()
     {
-        LoadinMenu.GetComponent<Animator>().Play("GoDown_anim");
-        Invoke("LoadScene", 2f);
+        if (!TriggeredEvent) 
+        {
+            TriggeredEvent = true;
+            LoadinMenu.GetComponent<Animator>().Play("GoDown_anim");
+            Invoke("LoadScene", 2.8f);
+        }
+        
     }
 
     private void LoadScene()
