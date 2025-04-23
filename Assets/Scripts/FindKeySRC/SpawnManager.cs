@@ -16,15 +16,12 @@ public class SpawnManager : MonoBehaviour
 
     void Spawn()
     {
-        if ((SpawnKey.instance.StartGame && SpawnKey.instance.GarbageInBin < 5) || (SpawnKey.instance.StartGame && SpawnCount < 10))
+        if (SpawnKey.instance.StartGame && SpawnKey.instance.GarbageInBin < 5 && SpawnCount < 5)
         {
-            if (SpawnKey.instance.GarbageInBin < 5) 
-            {
-                int spwanpointIndex = Random.Range(0, SpawnPoint.Length);
-                int SpawnEnemyIndex = Random.Range(0, Garbage.Length);
-                Instantiate(Garbage[SpawnEnemyIndex], SpawnPoint[spwanpointIndex].position, SpawnPoint[spwanpointIndex].rotation);
-                SpawnCount++;
-            }
+            int spwanpointIndex = Random.Range(0, SpawnPoint.Length);
+            int SpawnEnemyIndex = Random.Range(0, Garbage.Length);
+            Instantiate(Garbage[SpawnEnemyIndex], SpawnPoint[spwanpointIndex].position, SpawnPoint[spwanpointIndex].rotation);
+            SpawnCount++;
         }
     }
 }
