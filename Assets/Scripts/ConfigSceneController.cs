@@ -3,7 +3,6 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using TMPro;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class ConfigSceneController : MonoBehaviour
 {
