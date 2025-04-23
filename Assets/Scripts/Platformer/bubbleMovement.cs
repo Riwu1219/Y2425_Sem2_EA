@@ -36,6 +36,9 @@ public class bubbleMovement : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         rb = GetComponent<Rigidbody>();
         bubbleTrans = GetComponent<Transform>();
         animator = GetComponent<Animator>();
