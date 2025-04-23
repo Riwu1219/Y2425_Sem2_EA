@@ -410,8 +410,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5572862, y: 18.731346, z: 1.1670058}
-  m_Center: {x: 0.290458, y: 5.63354, z: 0.3874924}
+  m_Size: {x: 0.43998757, y: 18.731346, z: 1.1670058}
+  m_Center: {x: 0.34910852, y: 5.6335397, z: 0.3874924}
 --- !u!23 &187101286
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1017,8 +1017,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog: {fileID: 1540058439}
   lines:
-  - /Welcome to..(Type words)
-  - Please find the doll and put it in the right place
+  - /Welcome to sweet room
+  - Please find the doll and put it in the left side yellow box
   - Also please tidy up the room's garbage
   textSpeed: 0.06
   spaceSpeed: 0
