@@ -22,6 +22,7 @@ public class bubbleMovement : MonoBehaviour
     public ObjectLocator objLocator;
     public AudioSource landJumpSound;
     public AudioSource destroySound;
+    public GameObject GuideUI;
 
     private Vector3 mousePosition;
     private Vector3 bubbleLocationOnScreen;
@@ -38,6 +39,8 @@ public class bubbleMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        GuideUI = GameObject.FindGameObjectWithTag("Guide");
 
         rb = GetComponent<Rigidbody>();
         bubbleTrans = GetComponent<Transform>();
@@ -139,7 +142,7 @@ public class bubbleMovement : MonoBehaviour
                 force = new Vector3(x, y, 0);
                 //Debug.Log(force + " final < max");
             }
-
+            GuideUI.SetActive(false);
             rb.AddForce(force);
             canMove = false;
             //Debug.Log("Moved");
