@@ -398,6 +398,7 @@ MonoBehaviour:
   - '"Right" side to increase audio volume'
   - '"Center" to check audio volume'
   - Hold left click to check audio volume
+  - 
   textSpeed: 0.06
   spaceSpeed: 0.02
   lineDelay: 3
@@ -424,7 +425,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '"Center" to check audio volume'
+  m_text: '
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f1e92f087ea5eef4c89cac9060b714e2, type: 2}
   m_sharedMaterial: {fileID: -1171219337332347918, guid: f1e92f087ea5eef4c89cac9060b714e2, type: 2}
