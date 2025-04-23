@@ -142,7 +142,11 @@ public class bubbleMovement : MonoBehaviour
                 force = new Vector3(x, y, 0);
                 //Debug.Log(force + " final < max");
             }
-            GuideUI.SetActive(false);
+            if (GuideUI != null)
+            {
+                GuideUI.SetActive(false);
+            }
+            
             rb.AddForce(force);
             canMove = false;
             //Debug.Log("Moved");
