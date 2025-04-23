@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
 
     void Spawn()
     {
-        if ((SpawnKey.instance.StartGame && SpawnKey.instance.GarbageInBin < 5) || (SpawnKey.instance.StartGame && SpawnCount < 10))
+        if (SpawnKey.instance.StartGame && SpawnCount < 10)
         {
             if (SpawnKey.instance.GarbageInBin < 5)
             {
