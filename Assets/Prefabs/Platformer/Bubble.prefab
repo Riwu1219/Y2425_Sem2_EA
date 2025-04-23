@@ -111,9 +111,11 @@ MonoBehaviour:
   canMove: 0
   isDead: 0
   fallOut: 0
+  disableControl: 0
   objLocator: {fileID: 0}
   landJumpSound: {fileID: 8355461907316043875}
   destroySound: {fileID: 8355461907316043872}
+  GuideUI: {fileID: 0}
 --- !u!114 &8355461907316043903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,11 +128,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4219cebc745ec648bcd255a5011b93e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gravity: -5
+  GravityOffset: -7
   Intensity: 1.8
   Mass: 1
   stiffness: 0.8
   damping: 0.75
+  isTeleport: 0
 --- !u!135 &8355461907316043900
 SphereCollider:
   m_ObjectHideFlags: 0
