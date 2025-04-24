@@ -10,6 +10,9 @@ public class PickUpObj : MonoBehaviour
     public Rigidbody objRigidbody;
     public float throwAmount;
 
+
+    public AudioSource audioSource;
+
     void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("MainCamera"))
@@ -63,6 +66,7 @@ public class PickUpObj : MonoBehaviour
             {
                 objTransform.parent = null;
                 objRigidbody.useGravity = true;
+                audioSource.Play();
                 objRigidbody.velocity = cameraTrans.forward * throwAmount * Time.deltaTime;
                 pickedup = false;
             }
