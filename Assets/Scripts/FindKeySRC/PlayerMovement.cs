@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float defaultHeight = 2f;
     public float crouchHeight = 1f;
     public float crouchSpeed = 3f;
-
+    public AudioSource AudioSource;
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
     private CharacterController characterController;
@@ -51,7 +51,10 @@ public class PlayerMovement : MonoBehaviour
             float curSpeedY = canMove ? walkSpeed * Input.GetAxis("Horizontal") : 0;
             float movementDirectionY = moveDirection.y;
             moveDirection = (forward * curSpeedX) + (right * curSpeedY);
-
+            if (curSpeedX > 1 || curSpeedY > 1) 
+            {
+                AudioSource.Play();
+            }
             if (canMove && characterController.isGrounded)
             {
                 moveDirection.y = movementDirectionY;
