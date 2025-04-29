@@ -9,6 +9,7 @@ public class DestroyOnClick : MonoBehaviour
     public Vector3 minSpawnPosition;
     public Vector3 maxSpawnPosition;
     public Text killCountText;
+    public Text timerText;
 
     public Dialogue dialogueBox;
     public Dialogue dialogueBox2;
@@ -35,6 +36,7 @@ public class DestroyOnClick : MonoBehaviour
         {
             timer -= Time.deltaTime;
             Debug.Log($"Timer：{timer}");
+            UpdateTimerUI();
 
             if (timer <= 0)
             {
@@ -109,6 +111,12 @@ public class DestroyOnClick : MonoBehaviour
         killCountText.text = "x" + killCount;
     }
 
+    void UpdateTimerUI()
+    {
+        timerText.text = timer.ToString("F2");
+    }
+
+
     void CheckForDialogue()
     {
         if (killCount == 10 && !dialogueBox2.gameObject.activeSelf)
@@ -132,6 +140,7 @@ public class DestroyOnClick : MonoBehaviour
     {
         timerRunning = true;
         timer = 3f;
+        UpdateTimerUI();
         Debug.Log("Start counting");
         while (timer > 0)
         {
@@ -145,6 +154,7 @@ public class DestroyOnClick : MonoBehaviour
     void ResetTimer()
     {
         timer = 3f;
+        UpdateTimerUI();
         if (!timerRunning)
         {
             StartCoroutine(StartTimer());
@@ -165,7 +175,6 @@ public class DestroyOnClick : MonoBehaviour
         foreach (GameObject bubble in existingBubbles)
         {
             Destroy(bubble);
-            Debug.Log("销毁现有气泡。");
         }
 
         FindObjectOfType<AimLabManager>().ResetGame();
