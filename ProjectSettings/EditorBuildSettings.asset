@@ -15,12 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/ShooterScene.unity
     guid: f469cfdf4ee53894da74d6f4f3316be4
   - enabled: 1
-    path: Assets/Scenes/Find_Key.unity
-    guid: 6fff78ce2f4546047b0a26051435a8e9
-  - enabled: 1
     path: Assets/Scenes/PlatfomerScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: f9cf43eb60d23794f8c2ba15e0e13c7c
+  - enabled: 0
+    path: Assets/Scenes/Find_Key.unity
+    guid: 6fff78ce2f4546047b0a26051435a8e9
   m_configObjects: {}

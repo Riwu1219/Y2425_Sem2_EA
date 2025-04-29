@@ -21,6 +21,7 @@ public class DestroyOnClick : MonoBehaviour
     private float timer = 3f;
     private bool timerRunning = false;
     private bool bubbleSpawned = false;
+    private bool isTimeStop = false;
 
     void Start()
     {
@@ -34,11 +35,15 @@ public class DestroyOnClick : MonoBehaviour
     {
         if (timerRunning)
         {
-            timer -= Time.deltaTime;
+            if (!isTimeStop)
+            {
+                timer -= Time.deltaTime;
+            }
+            
             Debug.Log($"Timer：{timer}");
             UpdateTimerUI();
 
-            if (timer <= 0)
+            if (timer <= 0 && !isTimeStop)
             {
                 RestartGame(); // reset the game
             }
@@ -77,6 +82,7 @@ public class DestroyOnClick : MonoBehaviour
                 }
                 else
                 {
+                    
                     canRespawn = false;
                 }
             }
@@ -131,6 +137,8 @@ public class DestroyOnClick : MonoBehaviour
         }
         else if (killCount == 30 && !dialogueBox4.gameObject.activeSelf)
         {
+            Debug.Log("timestop");
+            isTimeStop = true;
             dialogueBox4.gameObject.SetActive(true); // activate the fourth dialogue box
             dialogueBox4.StartDialogue();
         }
@@ -138,17 +146,21 @@ public class DestroyOnClick : MonoBehaviour
 
     IEnumerator StartTimer()
     {
-        timerRunning = true;
-        timer = 3f;
-        UpdateTimerUI();
-        Debug.Log("Start counting");
-        while (timer > 0)
+        if (!isTimeStop)
         {
-            yield return null; // wait for the next frame
+            timerRunning = true;
+            timer = 3f;
+            UpdateTimerUI();
+            Debug.Log("Start counting");
+            while (timer > 0)
+            {
+                yield return null; // wait for the next frame
+            }
+            timerRunning = false;
+            Debug.Log("Times up");
+            RestartGame();
         }
-        timerRunning = false;
-        Debug.Log("Times up");
-        RestartGame();
+        
     }
 
     void ResetTimer()
