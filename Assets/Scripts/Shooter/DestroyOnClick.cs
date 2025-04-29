@@ -17,6 +17,9 @@ public class DestroyOnClick : MonoBehaviour
 
     private int killCount = 0;
     private bool canRespawn = true;
+    private float timer = 3f;
+    private bool timerRunning = false;
+    private bool bubbleSpawned = false;
 
     void Start()
     {
@@ -28,7 +31,18 @@ public class DestroyOnClick : MonoBehaviour
 
     void Update()
     {
-        
+        if (timerRunning)
+        {
+            timer -= Time.deltaTime;
+            Debug.Log($"Timer：{timer}");
+
+            if (timer <= 0)
+            {
+                RestartGame(); // reset the game
+            }
+        }
+
+
     }
 
     public void SimulateShooting()
@@ -50,6 +64,8 @@ public class DestroyOnClick : MonoBehaviour
                 killCount++;
                 UpdateKillCountUI();
 
+                ResetTimer(); //reset the timer
+
                 // CHECK FOR DIALOGUE HERE  
                 CheckForDialogue();
 
@@ -65,6 +81,15 @@ public class DestroyOnClick : MonoBehaviour
         }
     }
 
+    void SpawnBubble()
+    {
+        if (!bubbleSpawned)
+        {
+            StartCoroutine(RespawnBubble());
+            bubbleSpawned = true;
+        }
+    }
+
     IEnumerator RespawnBubble()
     {
         yield return new WaitForSeconds(respawnDelay);
@@ -76,6 +101,7 @@ public class DestroyOnClick : MonoBehaviour
         );
 
         Instantiate(bubblePrefab, randomPosition, Quaternion.identity);
+        bubbleSpawned = false;
     }
 
     void UpdateKillCountUI()
@@ -100,5 +126,57 @@ public class DestroyOnClick : MonoBehaviour
             dialogueBox4.gameObject.SetActive(true); // activate the fourth dialogue box
             dialogueBox4.StartDialogue();
         }
+    }
+
+    IEnumerator StartTimer()
+    {
+        timerRunning = true;
+        timer = 3f;
+        Debug.Log("Start counting");
+        while (timer > 0)
+        {
+            yield return null; // wait for the next frame
+        }
+        timerRunning = false;
+        Debug.Log("Times up");
+        RestartGame();
+    }
+
+    void ResetTimer()
+    {
+        timer = 3f;
+        if (!timerRunning)
+        {
+            StartCoroutine(StartTimer());
+        }
+    }
+
+    void RestartGame()
+    {
+
+        killCount = 0;
+        canRespawn = true;
+        UpdateKillCountUI();
+
+        dialogueBox.gameObject.SetActive(true);
+        dialogueBox.StartDialogue();
+
+        GameObject[] existingBubbles = GameObject.FindGameObjectsWithTag("Bubble");
+        foreach (GameObject bubble in existingBubbles)
+        {
+            Destroy(bubble);
+            Debug.Log("销毁现有气泡。");
+        }
+
+        FindObjectOfType<AimLabManager>().ResetGame();
+
+        StartCoroutine(WaitForDialogueAndSpawnBubble());
+    }
+
+    IEnumerator WaitForDialogueAndSpawnBubble()
+    {
+        yield return new WaitUntil(() => !dialogueBox.gameObject.activeSelf); 
+        SpawnBubble();
+
     }
 }

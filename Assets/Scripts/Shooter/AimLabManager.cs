@@ -3,16 +3,30 @@ using UnityEngine;
 
 public class AimLabManager : MonoBehaviour
 {
-    public float startGameDelay; // game start delay
-    public GameObject bubblePrefab; 
+    public float startGameDelay; 
+    public GameObject bubblePrefab;
 
-    private Vector3 bubblePosition = new Vector3(0, 2, -2.73f); // Bubble spawn position
+    private Vector3 bubblePosition = new Vector3(0, 2, -2.73f);
+    private bool gameStarted = false;
 
     IEnumerator Start()
     {
-        yield return new WaitForSeconds(startGameDelay); 
+        yield return new WaitForSeconds(startGameDelay);
+        StartGame();
+    }
+
+    public void StartGame()
+    {
+        if (!gameStarted)
+        {
+            Instantiate(bubblePrefab, bubblePosition, Quaternion.identity);
+            gameStarted = true;
+        }
+    }
 
 
-        Instantiate(bubblePrefab, bubblePosition, Quaternion.identity);
+    public void ResetGame()
+    {
+        gameStarted = false; 
     }
 }
