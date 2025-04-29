@@ -19,4 +19,10 @@ public class FunctionalAnim : MonoBehaviour
         }
         
     }
+
+    public void EndGame()
+    {
+        Debug.Log("Quit game");
+        Application.Quit();
+    }
 }

@@ -44,7 +44,11 @@ public class PlatformerManager : MonoBehaviour
 
         if (GameObject.FindGameObjectWithTag("Finish") != null)
         {
-            goalPrefab.transform.position = GameObject.FindGameObjectWithTag("Goal").transform.position;
+            if (GameObject.FindGameObjectWithTag("Goal") != null )
+            {
+                goalPrefab.transform.position = GameObject.FindGameObjectWithTag("Goal").transform.position;
+            }
+            
         }
 
 
